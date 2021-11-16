@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "vite",
     "get-fonts": "get-google-fonts -i 'https://fonts.googleapis.com/css?family=Roboto&effect=shadow-multiple'",
-    "build": "vite build",
+    "build": "vite build && echo '/* /index.html 200' | cat >dist/_redirects",
     "serve": "vite preview"
   },
   "repository": {
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/dpsoccerdude101/dpsoccerdude101.github.io#readme",
   "dependencies": {
+    "firebase": "^9.4.1",
     "haunted": "^4.8.2",
     "marked": "^3.0.7"
   },
