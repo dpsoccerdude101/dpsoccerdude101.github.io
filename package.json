@@ -24,7 +24,7 @@
     "marked": "^3.0.7"
   },
   "devDependencies": {
-    "vite": "^2.6.4",
+    "vite": "^2.9.13",
     "get-google-fonts": "^1.2.2"
   }
 }
