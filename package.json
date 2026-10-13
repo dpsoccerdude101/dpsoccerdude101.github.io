@@ -4,7 +4,7 @@
   "description": "My Portfolio Site",
   "scripts": {
     "dev": "vite",
-    "get-fonts": "get-google-fonts -i 'https://fonts.googleapis.com/css?family=Roboto&effect=shadow-multiple'",
+    "get-fonts": "npx -y get-google-fonts -i 'https://fonts.googleapis.com/css?family=Roboto&effect=shadow-multiple'",
     "build": "vite build && echo '/* /index.html 200' | cat >dist/_redirects",
     "serve": "vite preview"
   },
@@ -19,12 +19,14 @@
   },
   "homepage": "https://github.com/dpsoccerdude101/dpsoccerdude101.github.io#readme",
   "dependencies": {
-    "firebase": "^9.4.1",
+    "firebase": "^12.4.0",
     "haunted": "^4.8.2",
-    "marked": "^4.0.10"
+    "marked": "^16.4.0"
   },
   "devDependencies": {
-    "vite": "^2.6.4",
-    "get-google-fonts": "^1.2.2"
+    "vite": "^7.1.9"
+  },
+  "overrides": {
+    "@grpc/grpc-js": "^1.13.6"
   }
 }

@@ -1,6 +1,6 @@
 import { component, useState, html, useEffect } from "haunted";
 import { getText, stringToHTML } from "../tools/utils.js";
-import marked from "marked";
+import { marked } from "marked";
 import cmsText from "../../index.md?url";
 //import workletURL from 'extra-scalloped-border/worklet.js?url'
 // ALLOWS LINE BREAKS WITH RETURN BUTTON
