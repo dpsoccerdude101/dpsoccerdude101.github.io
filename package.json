@@ -21,7 +21,7 @@
   "dependencies": {
     "firebase": "^9.4.1",
     "haunted": "^4.8.2",
-    "marked": "^3.0.7"
+    "marked": "^4.0.10"
   },
   "devDependencies": {
     "vite": "^2.6.4",
