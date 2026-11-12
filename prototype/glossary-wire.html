@@ -95,8 +95,8 @@ const PAIRS = {
   "Peter+Lindsay":     { names:['Peter','Lindsay'],  games:['G3','G4','G7'] },
   "Dennis+Lindsay":    { names:['Dennis','Lindsay'], games:['G1','G2','G6'] },
   "Peter+Brooke":      { names:['Peter','Brooke'],   games:['G1','G2','G6'] },
-  "Dennis+Peter":      { names:['Dennis','Peter'],   games:['G5'], ghost:true, note:'the same-gender game — not in the mixed numbers' },
-  "Lindsay+Brooke":    { names:['Lindsay','Brooke'], games:['G5'], ghost:true, note:'the same-gender game — not in the mixed numbers' },
+  "Dennis+Peter":      { names:['Dennis','Peter'],   games:['G5'], ghost:true, note:'same-gender game — never in a mixed game' },
+  "Lindsay+Brooke":    { names:['Lindsay','Brooke'], games:['G5'], ghost:true, note:'same-gender game — never in a mixed game' },
 };
 const GAMES = ['G1','G2','G3','G4','G6','G7'];   // mixed, in the digest
 const ATTRS = ['attack','defence','positioning','consistency','touch'];
@@ -230,7 +230,7 @@ function variantC() {
   </div>
   <div class="wf" data-box="card 5 of 14 · a pair the mixed log has not seen">
     <div style="display:flex;justify-content:space-between;align-items:baseline">
-      <h3>Dennis + Lindsay</h3><span class="tag ghost">not mixed</span></div>
+      <h3>Dennis + Lindsay</h3><span class="tag ghost">mixed only</span></div>
     <p class="small" style="margin-top:6px">You played beside each other once — the same-gender
       game, against Brooke and Peter. Six mixed games, never together.</p>
   </div>
