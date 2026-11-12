@@ -134,21 +134,20 @@
   .readings h3:first-of-type { margin-top: 0; }
   .result { margin: 0 0 1.6em; padding: 0; border-top: 1px solid var(--rule); }
   .result:last-child { border-bottom: 1px solid var(--rule); }
-  .result div { display: grid; grid-template-columns: max-content 1fr; gap: .25em .9em; align-items: baseline; padding: .62em 0; border-bottom: 1px solid var(--rule); }
+  .result div { display: grid; grid-template-columns: 1fr auto; gap: .18em .8em; align-items: baseline; padding: .7em 0; border-bottom: 1px solid var(--rule); }
   .result div:last-child { border-bottom: 0; }
 
-  .result .name { font-weight: 600; font-size: .97rem; }
-  .result .fig { grid-column: 2; font-variant-numeric: tabular-nums; font-size: .97rem; }
+  .result .name { font-weight: 600; }
+  .result .fig { text-align: right; font-variant-numeric: tabular-nums; font-size: 1.02rem; font-weight: 600; }
   .result .fig:empty { display: none; }
-  .result .fig small { color: var(--ink-3); font-size: .82em; font-weight: 400; margin-left: .5em; }
-  .result .fig .bar { width: 100%; margin-top: .45em; }
-  .result .note { font-size: .9rem; color: var(--ink-2); }
+  .result .note { grid-column: 1 / -1; font-size: .88rem; color: var(--ink-3); line-height: 1.45; }
+  .scale-note { font-size: .82rem; color: var(--ink-3); margin: .7em 0 0; }
   .tag { display: inline-block; font: 700 .7rem/1.5 var(--sans); letter-spacing: .05em; text-transform: uppercase; padding: 0 .45em; border-radius: 2px; white-space: nowrap; }
   .tag.g { color: var(--green-ink); background: var(--green-wash); }
   .tag.a { color: var(--amber-ink); background: var(--amber-wash); }
   .tag.s { color: var(--ink-2); background: var(--wash); }
-  .bar { display: block; height: 3px; background: var(--rule); margin-top: .35em; position: relative; }
-  .bar i { position: absolute; top: 0; height: 3px; background: var(--ink-2); }
+  .bar { grid-column: 1 / -1; display: block; height: 5px; background: var(--wash); margin-top: .4em; position: relative; border-radius: 2px; }
+  .bar i { position: absolute; top: 0; bottom: 0; background: var(--ink-2); border-radius: 2px; }
 
   .defaults { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--rule); }
   .defaults li { display: grid; grid-template-columns: 8.6em 1fr; gap: .2em .9em; padding: .62em 0; border-bottom: 1px solid var(--rule); margin: 0; font-size: .96rem; }
@@ -185,8 +184,7 @@
   .colophon { margin-top: 3.5em; padding-top: 1em; border-top: 1px solid var(--rule); font-size: .82rem; color: var(--ink-3); }
   @media (max-width: 560px) {
     main { padding: 22px 16px 56px; }
-    .result div { grid-template-columns: max-content 1fr; gap: .2em .6em; }
-    .result .fig { grid-column: 2; text-align: left; }
+    .result div { gap: .18em .6em; }
   }
 </style>
 </head>
@@ -374,11 +372,12 @@
   <h3>The outcome is a tie</h3>
   <p>Both pairings split their games 3 to 3. The four pairs win between 46.7% and 53.3% of their rallies, and every range overlaps every other range. The outcome cannot pick a winner.</p>
   <div class="result">
-    <div><span class="name">Dennis + Lindsay</span><span class="note">2–1 in 3 games</span><span class="fig">52.9% <small>45.7 to 64.9</small><span class="bar"><i style="left:39.2%;width:48.2%"></i></span></span></div>
-        <div><span class="name">Peter + Brooke</span><span class="note">1–2 in 3 games</span><span class="fig">47.1% <small>35.1 to 54.3</small><span class="bar"><i style="left:12.7%;width:48.2%"></i></span></span></div>
-        <div><span class="name">Dennis + Brooke</span><span class="note">2–1 in 3 games</span><span class="fig">46.7% <small>39.6 to 56.2</small><span class="bar"><i style="left:24.0%;width:41.6%"></i></span></span></div>
-        <div><span class="name">Peter + Lindsay</span><span class="note">1–2 in 3 games</span><span class="fig">53.3% <small>43.8 to 60.4</small><span class="bar"><i style="left:34.4%;width:41.6%"></i></span></span></div>
+    <div><span class="name">Dennis + Lindsay</span><span class="fig">52.9%</span><span class="note">2–1 in 3 games. Likely 45.7 to 64.9.</span><span class="bar" aria-hidden="true"><i style="left:39.2%;width:48.2%"></i></span></div>
+        <div><span class="name">Peter + Brooke</span><span class="fig">47.1%</span><span class="note">1–2 in 3 games. Likely 35.1 to 54.3.</span><span class="bar" aria-hidden="true"><i style="left:12.7%;width:48.2%"></i></span></div>
+        <div><span class="name">Dennis + Brooke</span><span class="fig">46.7%</span><span class="note">2–1 in 3 games. Likely 39.6 to 56.2.</span><span class="bar" aria-hidden="true"><i style="left:24.0%;width:41.6%"></i></span></div>
+        <div><span class="name">Peter + Lindsay</span><span class="fig">53.3%</span><span class="note">1–2 in 3 games. Likely 43.8 to 60.4.</span><span class="bar" aria-hidden="true"><i style="left:34.4%;width:41.6%"></i></span></div>
   </div>
+  <p class="scale-note">Bars run from 30% to 70% of rallies won. The dark span is the likely range.</p>
 
   <h3>The process favors B</h3>
   <p>Every one of us misses less with the B partner. For Dennis, Peter, and Lindsay the whole range sits below zero, so the direction is dependable. For Brooke it straddles zero: right direction, not yet enough games.</p>
