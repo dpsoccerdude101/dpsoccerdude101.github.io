@@ -165,9 +165,13 @@
 
   /* audibles */
   .audibles { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--ink); }
-  .audibles li { display: grid; gap: var(--s1); padding: var(--s3) 0; border-bottom: 1px solid var(--rule); margin: 0; }
+  .audibles .call { border-top: 0; padding-top: 0; margin-top: 0; }
+  .audibles { counter-reset: aud; }
+  .audibles li { display: grid; gap: var(--s1); padding: var(--s3) 0 var(--s3) 2rem; border-bottom: 1px solid var(--rule); margin: 0; position: relative; counter-increment: aud; align-content: start; }
+  .audibles li::before { content: counter(aud); position: absolute; left: 0; top: var(--s3); font: 800 1.4rem/1 var(--mono); color: var(--rule-2); }
   .audibles .trig { font-size: .8rem; color: var(--ink-3); }
-  .audibles .call { font-weight: 700; font-size: 1rem; }
+  .audibles .call b { font-weight: 800; }
+  .audibles .call { display: block; font-weight: 700; font-size: 1rem; line-height: 1.35; }
   .audibles .why { font-size: .88rem; color: var(--ink-2); }
 
   /* tables of numbers */
@@ -330,14 +334,14 @@
   <h2 id="playbook-title">The coach's playbook</h2>
   <p>The call is B. These are the eight things that change it, in the order you would meet them in a game. Each one is a trigger, a call, and the number behind it.</p>
   <ol class="audibles">
-      <li><span class="trig">First serve of the match, no read on them yet</span><span class="call">Play B. Dennis serves, Brooke drives the third.</span><span class="why">B is the lower-miss pairing: every one of the four misses less with the B partner.</span></li>
-      <li><span class="trig">Their returner is standing deep and floating it</span><span class="call">Play Dennis drops the third and follows it in.</span><span class="why">With Brooke, his drops miss 10.0% (1 of 10); his drives miss 25.0% (3 of 12).</span></li>
-      <li><span class="trig">They are crowding Brooke on the right</span><span class="call">Play Brooke drives instead of dropping, Dennis takes the middle.</span><span class="why">With Dennis, her drop misses 36.4% (4 of 11); her drive misses 11.1% (1 of 9).</span></li>
-      <li><span class="trig">They keep lobbing over Peter</span><span class="call">Play Peter drops, Lindsay takes the lob and resets.</span><span class="why">With Lindsay, Peter's drops miss 15.4% (2 of 13); his drives miss 36.4% (4 of 11).</span></li>
-      <li><span class="trig">They are winning the dink battle on Lindsay</span><span class="call">Play Lindsay drives the third instead of dropping.</span><span class="why">With Peter, her third-shot drives miss 36.4% (4 of 11); her drops miss 0.0% (0 of 4).</span></li>
-      <li><span class="trig">One opposing pair is clearly the weaker one</span><span class="call">Play Switch to A and aim Dennis + Lindsay at that pair.</span><span class="why">A pairs put away 11.1 and 12.3 per 100 against B's 10.7 and 9.1.</span></li>
-      <li><span class="trig">They hand out free balls and never speed up</span><span class="call">Play Switch to A and let Dennis finish.</span><span class="why">A misses more (18.6 and 18.8 per 100) but converts more putaways.</span></li>
-      <li><span class="trig">You are two games down and need a ceiling, not a floor</span><span class="call">Play Switch to A for the rest of the match.</span><span class="why">A is the higher-ceiling, higher-risk pairing. No A pair ever played a B pair, so this is a bet, not a measurement.</span></li>
+      <li><span class="trig">First serve of the match, no read on them yet</span><span class="call"><b>B. Dennis serves, Brooke drives the third shot.</b></span><span class="why">B is the lower-miss pairing: every one of the four misses less with the B partner.</span></li>
+      <li><span class="trig">Their returner is standing deep and floating it</span><span class="call"><b>B, with Dennis dropping the third and following it in.</b></span><span class="why">With Brooke, his drops miss 10.0% (1 of 10); his drives miss 25.0% (3 of 12).</span></li>
+      <li><span class="trig">They are crowding Brooke on the right</span><span class="call"><b>B, with Brooke driving and Dennis taking the middle.</b></span><span class="why">With Dennis, her drop misses 36.4% (4 of 11); her drive misses 11.1% (1 of 9).</span></li>
+      <li><span class="trig">They keep lobbing over Peter</span><span class="call"><b>B, with Peter dropping and Lindsay taking the lob.</b></span><span class="why">With Lindsay, Peter's drops miss 15.4% (2 of 13); his drives miss 36.4% (4 of 11).</span></li>
+      <li><span class="trig">They are winning the dink battle on Lindsay</span><span class="call"><b>B, with Lindsay driving the third instead of dropping.</b></span><span class="why">With Peter, her third-shot drives miss 36.4% (4 of 11); her drops miss 0.0% (0 of 4).</span></li>
+      <li><span class="trig">One opposing pair is clearly the weaker one</span><span class="call"><b>A, with Dennis + Lindsay aimed at that pair.</b></span><span class="why">A pairs put away 11.1 and 12.3 per 100 against B's 10.7 and 9.1.</span></li>
+      <li><span class="trig">They hand out free balls and never speed up</span><span class="call"><b>A, and let Dennis finish.</b></span><span class="why">A misses more (18.6 and 18.8 per 100) but converts more putaways.</span></li>
+      <li><span class="trig">You are two games down and need a ceiling, not a floor</span><span class="call"><b>A, for the rest of the match.</b></span><span class="why">A is the higher-ceiling, higher-risk pairing. No A pair ever played a B pair, so this is a bet, not a measurement.</span></li>
   </ol>
 </section>
 
