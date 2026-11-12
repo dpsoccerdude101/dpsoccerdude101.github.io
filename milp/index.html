@@ -5,49 +5,39 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Which two mixed doubles pairings to play, from six PB Vision games. Dennis, Brooke, Peter, and Lindsay, November 2026.">
 <meta name="robots" content="noindex">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%23b45309'/%3E%3Cpath d='M3 8h10' stroke='%23fff' stroke-width='1.5' stroke-dasharray='2 1.4'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%230072B2'/%3E%3Cpath d='M3 8h10' stroke='%23fff' stroke-width='1.5' stroke-dasharray='2 1.4'/%3E%3C/svg%3E">
 <title>Play B: Dennis + Brooke, Peter + Lindsay</title>
 <style>
   :root {
-    --paper: #faf8f4;
-    --ink: #191714;
-    --ink-2: #4a453e;
-    --ink-3: #6f675d;
-    --rule: #ded8cd;
-    --rule-2: #c9c1b3;
-    --wash: #f0ece4;
-    --green: #146c43;
-    --green-ink: #0b4a2d;
-    --green-wash: #e4efe7;
-    --amber: #8a5a00;
-    --amber-ink: #5c3c00;
-    --amber-wash: #f7edda;
-    --red: #a4262c;
-    --red-wash: #f6e6e4;
-    --same: #161616;
-    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    --paper: #fbfaf7;
+    --ink: #14120f;
+    --ink-2: #3d3831;
+    --ink-3: #6b6459;
+    --rule: #e2ddd3;
+    --rule-2: #c8c1b4;
+    --wash: #f2eee6;
+    --p-dennis: #0072B2;
+    --p-peter: #E69F00;
+    --p-lindsay: #009E73;
+    --p-brooke: #D55E00;
     --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    --measure: 34rem;
+    --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px; --s6: 32px; --s7: 48px;
+    --measure: 40rem;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --paper: #161513;
-      --ink: #f3efe7;
-      --ink-2: #c8c1b4;
-      --ink-3: #a2998c;
-      --rule: #34302b;
-      --rule-2: #4a443d;
-      --wash: #211e1a;
-      --green: #5fbf8c;
-      --green-ink: #b6e6cb;
-      --green-wash: #17261e;
-      --amber: #e3ae54;
-      --amber-ink: #f2d49d;
-      --amber-wash: #2a2114;
-      --red: #e8837f;
-      --red-wash: #2c1a19;
-      --same: #f3efe7;
+      --paper: #14120f;
+      --ink: #f4f0e8;
+      --ink-2: #d3ccc0;
+      --ink-3: #a49b8d;
+      --rule: #322d27;
+      --rule-2: #4b453d;
+      --wash: #1e1b17;
+      --p-dennis: #56B4E9;
+      --p-peter: #F0C24B;
+      --p-lindsay: #4FC79B;
+      --p-brooke: #F08A5D;
     }
   }
   * { box-sizing: border-box; }
@@ -56,135 +46,169 @@
     margin: 0;
     background: var(--paper);
     color: var(--ink);
-    font: 400 19px/1.6 var(--sans);
+    font: 400 17px/1.55 var(--sans);
+    -webkit-font-smoothing: antialiased;
   }
-  main { max-width: var(--measure); margin: 0 auto; padding: 28px 20px 72px; }
-  p { margin: 0 0 1em; text-wrap: pretty; }
-  h1, h2, h3 { text-wrap: balance; font-family: var(--serif); font-weight: 600; letter-spacing: -.005em; }
-  h1 { font-size: clamp(2rem, 6vw, 2.6rem); line-height: 1.12; margin: 0 0 .6em; }
-  h2 { font-size: clamp(1.4rem, 3.6vw, 1.7rem); line-height: 1.2; margin: 2.6em 0 .7em; padding-top: .9em; border-top: 1px solid var(--rule); }
-  h3 { font-size: 1.14rem; line-height: 1.3; margin: 1.8em 0 .45em; }
-  ul { padding-left: 1.15em; margin: 0 0 1em; }
-  li { margin-bottom: .45em; text-wrap: pretty; }
+  main { max-width: var(--measure); margin: 0 auto; padding: var(--s5) var(--s4) var(--s7); }
+  p { margin: 0 0 var(--s4); text-wrap: pretty; }
+  h1, h2, h3 { margin: 0; text-wrap: balance; letter-spacing: -.015em; }
+  h1 { font-size: clamp(1.9rem, 7vw, 2.5rem); line-height: 1.08; font-weight: 800; }
+  h2 { font-size: clamp(1.35rem, 4.6vw, 1.6rem); line-height: 1.2; font-weight: 750; margin: var(--s7) 0 var(--s3); }
+  h3 { font-size: 1.05rem; line-height: 1.3; font-weight: 700; margin: var(--s5) 0 var(--s2); }
+  ul, ol { margin: 0 0 var(--s4); padding-left: 1.1em; }
+  li { margin-bottom: var(--s2); text-wrap: pretty; }
   a { color: inherit; text-decoration-color: var(--rule-2); text-underline-offset: 3px; }
   a:hover { text-decoration-color: currentColor; }
   :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 2px; }
-  .dateline { font-size: .88rem; color: var(--ink-3); margin: 0 0 2.4em; font-variant-numeric: tabular-nums; }
+  .lede { font-size: 1.1rem; color: var(--ink-2); }
+  .dateline { font-size: .85rem; color: var(--ink-3); margin: var(--s3) 0 var(--s6); font-variant-numeric: tabular-nums; }
   .dateline span + span::before { content: " / "; color: var(--rule-2); }
+  .kicker { font: 700 .72rem/1 var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 var(--s2); }
 
   /* the call */
-  .call { margin: 0 0 2.2em; }
-  .call h2 { border: 0; padding: 0; margin: 0 0 .5em; font-size: clamp(1.9rem, 5.2vw, 2.4rem); }
-  .call .pairings { margin: 0 0 1.1em; display: grid; gap: .45em; }
-  .call .pairings div { display: grid; grid-template-columns: 1.5em 1fr; align-items: baseline; }
-  .call .pairings .mark { font: 700 .95rem/1.6 var(--mono); color: var(--ink-3); }
-  .call .pairings .who { font-family: var(--serif); font-size: clamp(1.25rem, 3.8vw, 1.5rem); line-height: 1.3; }
-  .call .pairings .alt { color: var(--ink-3); font-size: 1.02rem; font-family: var(--sans); line-height: 1.5; }
-  .sure { font-size: 1rem; color: var(--amber-ink); border-left: 3px solid var(--amber); padding: .1em 0 .1em .8em; margin: 0 0 1.3em; }
-  .sure strong { font-weight: 700; }
-  .call .why { font-size: 1.12rem; margin-bottom: .9em; }
-  .basis { font-size: .9rem; color: var(--ink-3); margin-bottom: 0; font-variant-numeric: tabular-nums; }
+  .call { border-top: 2px solid var(--ink); padding-top: var(--s4); margin-bottom: var(--s6); }
+  .call .pairings { display: grid; gap: var(--s2); margin: var(--s4) 0; }
+  .call .pairings div { display: grid; grid-template-columns: 1.6em 1fr; align-items: baseline; }
+  .call .mark { font: 800 .9rem/1.5 var(--mono); color: var(--ink-3); }
+  .call .who { font-size: clamp(1.2rem, 4.4vw, 1.45rem); font-weight: 700; line-height: 1.25; }
+  .call .alt { color: var(--ink-3); font-size: 1rem; font-weight: 500; }
+  .sure { font-size: .95rem; color: var(--ink-2); border-left: 3px solid var(--rule-2); padding-left: var(--s3); margin: 0 0 var(--s4); }
+  .basis { font-size: .85rem; color: var(--ink-3); margin: 0; font-variant-numeric: tabular-nums; }
 
-  /* running header for long scrolls */
+  /* cards */
+  .cards { display: grid; gap: var(--s4); margin: var(--s4) 0 var(--s5); }
+  .card-wrap { perspective: 1000px; }
+  .card {
+    display: grid; width: 100%; text-align: left; cursor: pointer;
+    font: inherit; color: inherit; background: var(--paper);
+    border: 1px solid var(--rule-2); border-radius: 6px;
+    padding: var(--s4); position: relative;
+    transform-style: preserve-3d; transition: transform .45s ease;
+  }
+  .card[aria-pressed="true"] { transform: rotateY(180deg); }
+  .face { display: block; grid-area: 1 / 1; backface-visibility: hidden; }
+  .face.back { transform: rotateY(180deg); }
+  .c-name { display: block; font-size: 1.3rem; font-weight: 800; letter-spacing: -.01em; }
+  .c-name::before { content: ""; display: inline-block; width: .55em; height: .55em; border-radius: 50%; background: var(--h, var(--ink)); margin-right: .45em; vertical-align: .02em; }
+  .c-sub { display: block; font-size: .8rem; color: var(--ink-3); margin: var(--s1) 0 var(--s4); }
+  .c-row { display: grid; grid-template-columns: 1fr 3.4rem 2.6rem; gap: var(--s2); align-items: baseline; padding: var(--s2) 0; border-bottom: 1px solid var(--rule); }
+  .c-head { border-bottom: 1px solid var(--ink); font: 700 .75rem/1 var(--sans); letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); }
+  .a-name { font-weight: 600; }
+  .a-val { text-align: right; font: 700 1.15rem/1 var(--mono); font-variant-numeric: tabular-nums; }
+  .a-rank { text-align: right; font: 600 .8rem/1 var(--mono); color: var(--ink-3); }
+  .c-flip { display: block; margin-top: var(--s3); font-size: .78rem; color: var(--ink-3); }
+  .b-name { font-weight: 700; font-size: .9rem; }
+  .b-n { font: 600 .78rem/1 var(--mono); color: var(--ink-3); text-align: right; white-space: nowrap; }
+  .b-f { grid-column: 1 / -1; font-size: .8rem; color: var(--ink-2); line-height: 1.4; }
+  .c-attrs .b-name, .c-attrs .b-n { display: block; }
+  .b-row { grid-template-columns: 1fr auto; }
 
-  /* confidence scale */
-  .scale { margin: 0 0 2.4em; }
-  .scale dl { margin: 0; display: grid; gap: .55em; }
-  .scale dt { font-weight: 700; font-size: .95rem; }
-  .scale dt.g { color: var(--green-ink); }
-  .scale dt.a { color: var(--amber-ink); }
-  .scale dd { margin: .05em 0 0; font-size: .93rem; color: var(--ink-2); padding-left: 1.2em; }
-  .scale dt::before { content: ""; display: inline-block; width: .7em; height: .7em; border-radius: 50%; margin-right: .5em; vertical-align: -.02em; }
-  .scale dt.g::before { background: var(--green); }
-  .scale dt.a::before { background: var(--amber); }
-  .scale dd::before { content: ""; display: inline-block; width: .7em; margin-right: .5em; }
+  /* pairing complements */
+  .pair-card { border: 1px solid var(--rule-2); border-radius: 6px; padding: var(--s4); margin-bottom: var(--s4); }
+  .pair-card h3 { margin-top: 0; }
+  .comp { list-style: none; padding: 0; margin: 0; }
+  .comp li { margin: 0; padding: var(--s2) 0; border-top: 1px solid var(--rule); font-size: .95rem; }
+  .comp li:first-child { border-top: 0; }
 
-  .pair-set { margin: 0 0 2.6em; }
-  .pair-set h2 { margin-top: 0; border-top: 0; padding-top: 0; }
-  .sides { font-size: .95rem; color: var(--ink-2); margin: -.1em 0 1.2em; }
-  .sides b { color: var(--ink); font-weight: 700; }
-  .court { margin: 0 0 .6em; }
-  .court svg { display: block; width: 100%; height: auto; overflow: visible; }
-  .court-cap { font-size: .85rem; color: var(--ink-3); margin: 0 0 1.4em; line-height: 1.5; }
-  .court-cap span { display: inline; }
-  .court-cap span + span::before { content: " / "; color: var(--rule-2); }
+  /* charts */
+  .chart { display: block; width: 100%; height: auto; margin: var(--s3) 0 var(--s2); overflow: visible; }
+  .chart text { font-family: var(--sans); }
+  .whisker { stroke: var(--ink-3); stroke-width: 2; }
+  .dot { fill: var(--ink); }
+  .dot-a { fill: var(--paper); stroke: var(--ink); stroke-width: 2; }
+  .dot-b { fill: var(--ink); }
+  .grid { stroke: var(--rule); stroke-width: 1; }
+  .axis { stroke: var(--ink-3); stroke-width: 1; }
+  .lbl-end { font-size: 11px; fill: var(--ink-2); text-anchor: end; }
+  .lbl-mid { font-size: 11px; font-weight: 700; fill: var(--ink); text-anchor: middle; }
+  .lbl-ax { font-size: 10px; fill: var(--ink-3); text-anchor: middle; }
+  .lbl-tiny { font-size: 9px; fill: var(--ink-2); text-anchor: middle; }
+  .lbl-panel { font-size: 11px; font-weight: 700; fill: var(--ink); }
+  .lbl-initial { font-size: 9px; font-weight: 700; fill: var(--ink); text-anchor: middle; }
 
-  .rule-line { margin: 1.1em 0 1.4em; padding: .7em .9em; background: var(--wash); border-radius: 3px; font-weight: 600; }
-  .rule-line::before { content: "Rule"; display: block; font: 700 .72rem/1 var(--sans); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: .35em; }
+  .lbl-net { font-size: 9px; fill: var(--ink-3); text-anchor: middle; }
+  .cap { font-size: .82rem; color: var(--ink-3); margin: 0 0 var(--s5); line-height: 1.45; }
+  .cap b { color: var(--ink-2); font-weight: 600; }
+  .key { white-space: nowrap; font-weight: 700; }
+  .k-d { color: var(--p-dennis); }
+  .k-p { color: var(--p-peter); }
+  .k-l { color: var(--p-lindsay); }
+  .k-b { color: var(--p-brooke); }
 
-  .avoid { margin: 1.6em 0 0; padding: .9em 1em; background: var(--red-wash); border-radius: 3px; }
-  .avoid h3 { margin: 0 0 .3em; color: var(--red); font-size: .78rem; font-family: var(--sans); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
-  .avoid p { margin: 0; }
+  /* court */
+  .court { display: block; width: 100%; height: auto; margin: var(--s3) 0; }
+  .court-bg { fill: var(--wash); stroke: var(--rule-2); stroke-width: 1; }
+  .net { stroke: var(--ink); stroke-width: 2; stroke-dasharray: 6 4; }
+  .kitchen { stroke: var(--rule-2); stroke-width: 1; }
+  .center { stroke: var(--rule-2); stroke-width: 1; stroke-dasharray: 3 4; }
+  .ball { fill: var(--ink); }
+  .trace { stroke: var(--ink); stroke-width: 2; stroke-dasharray: 4 3; opacity: 0; }
+  .pl circle { transition: none; }
 
-  .tradeoff { margin: 2.8em 0 0; padding: 0; }
-  .tradeoff h2 { margin-top: 0; }
-  .tradeoff ul { margin-bottom: 1.2em; }
+  /* swap */
+  .swap { display: block; width: 100%; height: auto; margin: var(--s3) 0; }
+  .swap .node { transition: transform .6s ease; transform-box: fill-box; }
+  .swap .node text { font-size: 10px; font-weight: 700; fill: var(--ink); text-anchor: middle; }
+  .swap .slot { fill: none; stroke: var(--rule-2); stroke-width: 1; stroke-dasharray: 3 3; }
+  .swap .slot-lbl { font-size: 9px; fill: var(--ink-3); text-anchor: middle; }
 
-  .switch { margin: 2.8em 0 0; }
-  .switch h2 { margin-top: 0; }
-  .switch ol { margin: 0; padding: 0; list-style: none; counter-reset: sw; border-top: 1px solid var(--rule); }
-  .switch li { counter-increment: sw; position: relative; padding: .85em 0 .85em 2.4em; border-bottom: 1px solid var(--rule); margin: 0; }
-  .switch li::before { content: counter(sw); position: absolute; left: 0; top: .9em; font: 700 .8rem/1.6 var(--mono); color: var(--ink-3); }
-  .switch li b { font-weight: 700; }
-  .switch li .pick { display: block; font-size: .88rem; color: var(--ink-3); margin-top: .15em; }
-  .switch .aside { font-size: .92rem; color: var(--ink-3); margin-top: 1.2em; }
-
-  .readings { margin: 0; }
-  .readings h3 { margin-top: 2em; }
-  .readings h3:first-of-type { margin-top: 0; }
-  .result { margin: 0 0 1.6em; padding: 0; border-top: 1px solid var(--rule); }
-  .result:last-child { border-bottom: 1px solid var(--rule); }
-  .result div { display: grid; grid-template-columns: 1fr auto; gap: .18em .8em; align-items: baseline; padding: .7em 0; border-bottom: 1px solid var(--rule); }
-  .result div:last-child { border-bottom: 0; }
-
-  .result .name { font-weight: 600; }
-  .result .fig { text-align: right; font-variant-numeric: tabular-nums; font-size: 1.02rem; font-weight: 600; }
-  .result .fig:empty { display: none; }
-  .result .note { grid-column: 1 / -1; font-size: .88rem; color: var(--ink-3); line-height: 1.45; }
-  .scale-note { font-size: .82rem; color: var(--ink-3); margin: .7em 0 0; }
-  .tag { display: inline-block; font: 700 .7rem/1.5 var(--sans); letter-spacing: .05em; text-transform: uppercase; padding: 0 .45em; border-radius: 2px; white-space: nowrap; }
-  .tag.g { color: var(--green-ink); background: var(--green-wash); }
-  .tag.a { color: var(--amber-ink); background: var(--amber-wash); }
-  .tag.s { color: var(--ink-2); background: var(--wash); }
-  .bar { grid-column: 1 / -1; display: block; height: 5px; background: var(--wash); margin-top: .4em; position: relative; border-radius: 2px; }
-  .bar i { position: absolute; top: 0; bottom: 0; background: var(--ink-2); border-radius: 2px; }
-
-  .defaults { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--rule); }
-  .defaults li { display: grid; grid-template-columns: 8.6em 1fr; gap: .2em .9em; padding: .62em 0; border-bottom: 1px solid var(--rule); margin: 0; font-size: .96rem; }
-  .defaults .pair { font-weight: 600; }
-  .defaults .dflt { font-weight: 700; }
-  .defaults .nums { color: var(--ink-3); font-size: .87rem; grid-column: 2; font-variant-numeric: tabular-nums; }
-  .defaults .none { color: var(--red); }
-  .caveats { margin: 0; padding-left: 1.1em; }
-  .caveats li { margin-bottom: .8em; }
-
-  .rallies { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--rule); }
-  .rallies li { padding: .85em 0; border-bottom: 1px solid var(--rule); margin: 0; }
-  .rallies .what { display: block; text-wrap: pretty; }
-  .rallies .where { display: block; font-size: .87rem; color: var(--ink-3); margin-top: .2em; font-variant-numeric: tabular-nums; }
-  .rallies .where a { text-decoration-color: var(--rule-2); }
-
-  .assume li { font-size: .96rem; }
-  .quiz { padding: 0; margin: 0; list-style: none; counter-reset: q; }
-  .quiz > li { counter-increment: q; margin: 0 0 1.5em; }
-  .quiz > li > span { display: block; font-weight: 500; font-size: 1.02rem; line-height: 1.45; text-wrap: pretty; }
-  .quiz > li > span::before { content: counter(q) ". "; color: var(--ink-3); font-variant-numeric: tabular-nums; }
-  details { margin-top: .35em; }
-  details summary { cursor: pointer; font-size: .88rem; color: var(--ink-2); width: fit-content; padding: 6px 0; text-decoration: underline; text-decoration-color: var(--rule-2); text-underline-offset: 3px; }
-  details summary:hover { color: var(--ink); }
-  details p { margin: .2em 0 .6em; font-size: .95rem; padding-left: 1.4em; color: var(--ink-2); }
-  .reveal { margin: 0 0 1.4em; }
+  /* buttons */
+  .controls { display: flex; gap: var(--s2); flex-wrap: wrap; margin: var(--s3) 0 var(--s5); }
   button {
-    font: 600 .92rem/1 var(--sans); cursor: pointer;
+    font: 600 .9rem/1 var(--sans); cursor: pointer;
     color: var(--ink); background: transparent;
-    border: 1px solid var(--rule-2); border-radius: 4px; padding: 10px 14px;
+    border: 1px solid var(--rule-2); border-radius: 4px; padding: 11px 14px;
   }
   button:hover { border-color: var(--ink-2); }
   button:active { background: var(--wash); }
-  .colophon { margin-top: 3.5em; padding-top: 1em; border-top: 1px solid var(--rule); font-size: .82rem; color: var(--ink-3); }
-  @media (max-width: 560px) {
-    main { padding: 22px 16px 56px; }
-    .result div { gap: .18em .6em; }
+  button[disabled] { color: var(--ink-3); border-color: var(--rule); cursor: default; }
+
+  /* audibles */
+  .audibles { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--ink); }
+  .audibles li { display: grid; gap: var(--s1); padding: var(--s3) 0; border-bottom: 1px solid var(--rule); margin: 0; }
+  .audibles .trig { font-size: .8rem; color: var(--ink-3); }
+  .audibles .call { font-weight: 700; font-size: 1rem; }
+  .audibles .why { font-size: .88rem; color: var(--ink-2); }
+
+  /* tables of numbers */
+  .rows { list-style: none; padding: 0; margin: 0 0 var(--s4); border-top: 1px solid var(--rule); }
+  .rows li { margin: 0; padding: var(--s2) 0; border-bottom: 1px solid var(--rule); font-size: .92rem; }
+  .rows b { font-weight: 700; }
+  .defaults { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--rule); }
+  .defaults li { display: grid; grid-template-columns: 2.4rem 1fr; gap: var(--s1) var(--s3); padding: var(--s2) 0; border-bottom: 1px solid var(--rule); margin: 0; font-size: .92rem; }
+  .defaults .pair { font: 700 .8rem/1.6 var(--mono); color: var(--ink-3); }
+  .defaults .dflt { font-weight: 700; }
+  .defaults .nums { display: block; color: var(--ink-3); font-size: .82rem; font-variant-numeric: tabular-nums; }
+  .defaults .none { color: var(--ink-3); }
+
+  .claims { list-style: none; padding: 0; margin: 0; }
+  .claims li { padding: var(--s2) 0; border-bottom: 1px solid var(--rule); font-size: .92rem; margin: 0; }
+  .caveats li { font-size: .92rem; }
+
+  .rallies { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--rule); }
+  .rallies li { padding: var(--s2) 0; border-bottom: 1px solid var(--rule); margin: 0; }
+  .rallies .what { display: block; font-size: .95rem; }
+  .rallies .where { display: block; font-size: .8rem; color: var(--ink-3); margin-top: var(--s1); font-variant-numeric: tabular-nums; }
+
+  .quiz { padding: 0; margin: 0; list-style: none; counter-reset: q; }
+  .quiz > li { counter-increment: q; margin: 0 0 var(--s4); }
+  .quiz > li > span { display: block; font-weight: 600; font-size: .98rem; line-height: 1.4; }
+  .quiz > li > span::before { content: counter(q) ". "; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+  details { margin-top: var(--s1); }
+  details summary { cursor: pointer; font-size: .85rem; color: var(--ink-2); width: fit-content; padding: 6px 0; text-decoration: underline; text-decoration-color: var(--rule-2); text-underline-offset: 3px; }
+  details p { margin: var(--s1) 0 var(--s2); font-size: .9rem; padding-left: var(--s4); color: var(--ink-2); }
+
+  .colophon { margin-top: var(--s7); padding-top: var(--s3); border-top: 1px solid var(--rule); font-size: .8rem; color: var(--ink-3); }
+  .colophon p { margin: 0 0 var(--s2); }
+
+  @media (min-width: 40rem) {
+    .cards { grid-template-columns: 1fr 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .card, .swap .node, .node { transition: none !important; animation: none !important; }
+    .card[aria-pressed="true"] { transform: none; }
+    .card[aria-pressed="true"] .face.front { display: none; }
+    .card[aria-pressed="true"] .face.back { transform: none; }
   }
 </style>
 </head>
@@ -193,153 +217,164 @@
 
 <header>
   <h1>Play B: Dennis + Brooke, Peter + Lindsay</h1>
-  <p class="dateline"><span>MiLP mixed doubles</span><span>6 games from Nov 11</span><span>Prepared by Dennis</span></p>
+  <p class="dateline"><span>MiLP mixed doubles</span><span>6 games from Nov 11</span><span>219 rallies</span><span>1,224 shots</span></p>
 
   <section class="call" aria-labelledby="call-title">
-    <h2 id="call-title">The call</h2>
-    <p class="sure"><strong>A lean, not a proof.</strong> The six games are not enough to settle the question outright.</p>
+    <h2 id="call-title" style="margin-top:0">The call</h2>
+    <p class="sure"><b>A lean, not a proof.</b> Six games cannot settle this outright. The lean is real, the margin is not.</p>
     <div class="pairings">
       <div><span class="mark">B</span><span class="who">Dennis + Brooke<br>Peter + Lindsay</span></div>
       <div><span class="mark">A</span><span class="who alt">Dennis + Lindsay, Peter + Brooke</span></div>
     </div>
-    <p class="why">Both pairings win about the same number of rallies. With B, every one of us makes fewer errors. That gap is the one thing in the data large enough to act on.</p>
-    <p class="basis">From 6 mixed games, 219 rallies, 1,224 shots. 3 games per pairing.</p>
+    <p class="lede">Both pairings win about the same share of rallies. With B, every one of the four misses less. That gap is the one thing in the data big enough to act on.</p>
+    <p class="basis">3 games per pairing. Every number below is computed from the shot log.</p>
   </section>
 </header>
 
-<section class="scale" aria-labelledby="scale-title">
-  <h2 id="scale-title">How sure we are</h2>
-  <p>Every number below comes with a range: the span of values the six games could plausibly support. The range decides the label.</p>
-  <dl>
-    <dt class="g">Fairly sure</dt>
-    <dd>The whole range sits on one side of zero. Act on&nbsp;it.</dd>
-    <dt class="a">Directional</dt>
-    <dd>The direction holds across games, but the range could cross zero. This could easily be&nbsp;noise.</dd>
-    <dt class="s">No signal</dt>
-    <dd>The data points both ways. Do not act on&nbsp;it.</dd>
-  </dl>
+<section aria-labelledby="cards-title">
+  <h2 id="cards-title">Four cards</h2>
+  <p>Five attributes each, every one a formula over the shot log. The number is the score, the small number is the rank among the four. Tap a card for the counts behind it and the formula in one line.</p>
+  <div class="cards">
+      <div class="card-wrap"><button class="card" type="button" aria-pressed="false" data-name="Dennis"><span class="face front"><span class="c-name" style="--h:var(--p-dennis)">Dennis</span><span class="c-sub">five numbers, all from the shot log</span><span class="c-attrs"><span class="c-row c-head"><span class="a-name">Attribute</span><span class="a-val">Score</span><span class="a-rank">Rank</span></span><span class="c-row"><span class="a-name">Attack</span><span class="a-val">31</span><span class="a-rank">#2</span></span><span class="c-row"><span class="a-name">Defense</span><span class="a-val">73</span><span class="a-rank">#1</span></span><span class="c-row"><span class="a-name">Positioning</span><span class="a-val">58</span><span class="a-rank">#1</span></span><span class="c-row"><span class="a-name">Consistency</span><span class="a-val">87</span><span class="a-rank">#1</span></span><span class="c-row"><span class="a-name">Touch</span><span class="a-val">82</span><span class="a-rank">#2</span></span></span><span class="c-flip">Tap for the counts and the formula</span></span><span class="face back" aria-hidden="true"><span class="c-name">Dennis, back of card</span><span class="c-attrs"><span class="c-row b-row"><span class="b-name">Attack</span><span class="b-n">n = 134</span><span class="b-f">Putaways per 100 drives, smashes and speedups.</span></span><span class="c-row b-row"><span class="b-name">Defense</span><span class="b-n">n = 33</span><span class="b-f">Share of smashes, putaways and speedups you answered without a miss.</span></span><span class="c-row b-row"><span class="b-name">Positioning</span><span class="b-n">n = 314</span><span class="b-f">Half station discipline off the raw court coordinates, half kitchen arrival on your serve.</span></span><span class="c-row b-row"><span class="b-name">Consistency</span><span class="b-n">n = 265</span><span class="b-f">100 minus misses per 100 shots after the serve, dropping final shots the winning side gave away.</span></span><span class="c-row b-row"><span class="b-name">Touch</span><span class="b-n">n = 94</span><span class="b-f">100 minus misses per 100 dinks, drops and lobs.</span></span></span><span class="c-flip">Tap to turn it back</span></span></button></div>
+      <div class="card-wrap"><button class="card" type="button" aria-pressed="false" data-name="Peter"><span class="face front"><span class="c-name" style="--h:var(--p-peter)">Peter</span><span class="c-sub">five numbers, all from the shot log</span><span class="c-attrs"><span class="c-row c-head"><span class="a-name">Attribute</span><span class="a-val">Score</span><span class="a-rank">Rank</span></span><span class="c-row"><span class="a-name">Attack</span><span class="a-val">38</span><span class="a-rank">#1</span></span><span class="c-row"><span class="a-name">Defense</span><span class="a-val">72</span><span class="a-rank">#2</span></span><span class="c-row"><span class="a-name">Positioning</span><span class="a-val">36</span><span class="a-rank">#4</span></span><span class="c-row"><span class="a-name">Consistency</span><span class="a-val">83</span><span class="a-rank">#2</span></span><span class="c-row"><span class="a-name">Touch</span><span class="a-val">84</span><span class="a-rank">#1</span></span></span><span class="c-flip">Tap for the counts and the formula</span></span><span class="face back" aria-hidden="true"><span class="c-name">Peter, back of card</span><span class="c-attrs"><span class="c-row b-row"><span class="b-name">Attack</span><span class="b-n">n = 120</span><span class="b-f">Putaways per 100 drives, smashes and speedups.</span></span><span class="c-row b-row"><span class="b-name">Defense</span><span class="b-n">n = 32</span><span class="b-f">Share of smashes, putaways and speedups you answered without a miss.</span></span><span class="c-row b-row"><span class="b-name">Positioning</span><span class="b-n">n = 302</span><span class="b-f">Half station discipline off the raw court coordinates, half kitchen arrival on your serve.</span></span><span class="c-row b-row"><span class="b-name">Consistency</span><span class="b-n">n = 264</span><span class="b-f">100 minus misses per 100 shots after the serve, dropping final shots the winning side gave away.</span></span><span class="c-row b-row"><span class="b-name">Touch</span><span class="b-n">n = 104</span><span class="b-f">100 minus misses per 100 dinks, drops and lobs.</span></span></span><span class="c-flip">Tap to turn it back</span></span></button></div>
+      <div class="card-wrap"><button class="card" type="button" aria-pressed="false" data-name="Lindsay"><span class="face front"><span class="c-name" style="--h:var(--p-lindsay)">Lindsay</span><span class="c-sub">five numbers, all from the shot log</span><span class="c-attrs"><span class="c-row c-head"><span class="a-name">Attribute</span><span class="a-val">Score</span><span class="a-rank">Rank</span></span><span class="c-row"><span class="a-name">Attack</span><span class="a-val">20</span><span class="a-rank">#4</span></span><span class="c-row"><span class="a-name">Defense</span><span class="a-val">58</span><span class="a-rank">#4</span></span><span class="c-row"><span class="a-name">Positioning</span><span class="a-val">52</span><span class="a-rank">#2</span></span><span class="c-row"><span class="a-name">Consistency</span><span class="a-val">79</span><span class="a-rank">#3</span></span><span class="c-row"><span class="a-name">Touch</span><span class="a-val">79</span><span class="a-rank">#3</span></span></span><span class="c-flip">Tap for the counts and the formula</span></span><span class="face back" aria-hidden="true"><span class="c-name">Lindsay, back of card</span><span class="c-attrs"><span class="c-row b-row"><span class="b-name">Attack</span><span class="b-n">n = 107</span><span class="b-f">Putaways per 100 drives, smashes and speedups.</span></span><span class="c-row b-row"><span class="b-name">Defense</span><span class="b-n">n = 26</span><span class="b-f">Share of smashes, putaways and speedups you answered without a miss.</span></span><span class="c-row b-row"><span class="b-name">Positioning</span><span class="b-n">n = 300</span><span class="b-f">Half station discipline off the raw court coordinates, half kitchen arrival on your serve.</span></span><span class="c-row b-row"><span class="b-name">Consistency</span><span class="b-n">n = 255</span><span class="b-f">100 minus misses per 100 shots after the serve, dropping final shots the winning side gave away.</span></span><span class="c-row b-row"><span class="b-name">Touch</span><span class="b-n">n = 101</span><span class="b-f">100 minus misses per 100 dinks, drops and lobs.</span></span></span><span class="c-flip">Tap to turn it back</span></span></button></div>
+      <div class="card-wrap"><button class="card" type="button" aria-pressed="false" data-name="Brooke"><span class="face front"><span class="c-name" style="--h:var(--p-brooke)">Brooke</span><span class="c-sub">five numbers, all from the shot log</span><span class="c-attrs"><span class="c-row c-head"><span class="a-name">Attribute</span><span class="a-val">Score</span><span class="a-rank">Rank</span></span><span class="c-row"><span class="a-name">Attack</span><span class="a-val">26</span><span class="a-rank">#3</span></span><span class="c-row"><span class="a-name">Defense</span><span class="a-val">62</span><span class="a-rank">#3</span></span><span class="c-row"><span class="a-name">Positioning</span><span class="a-val">42</span><span class="a-rank">#3</span></span><span class="c-row"><span class="a-name">Consistency</span><span class="a-val">79</span><span class="a-rank">#4</span></span><span class="c-row"><span class="a-name">Touch</span><span class="a-val">71</span><span class="a-rank">#4</span></span></span><span class="c-flip">Tap for the counts and the formula</span></span><span class="face back" aria-hidden="true"><span class="c-name">Brooke, back of card</span><span class="c-attrs"><span class="c-row b-row"><span class="b-name">Attack</span><span class="b-n">n = 88</span><span class="b-f">Putaways per 100 drives, smashes and speedups.</span></span><span class="c-row b-row"><span class="b-name">Defense</span><span class="b-n">n = 16</span><span class="b-f">Share of smashes, putaways and speedups you answered without a miss.</span></span><span class="c-row b-row"><span class="b-name">Positioning</span><span class="b-n">n = 266</span><span class="b-f">Half station discipline off the raw court coordinates, half kitchen arrival on your serve.</span></span><span class="c-row b-row"><span class="b-name">Consistency</span><span class="b-n">n = 221</span><span class="b-f">100 minus misses per 100 shots after the serve, dropping final shots the winning side gave away.</span></span><span class="c-row b-row"><span class="b-name">Touch</span><span class="b-n">n = 86</span><span class="b-f">100 minus misses per 100 dinks, drops and lobs.</span></span></span><span class="c-flip">Tap to turn it back</span></span></button></div>
+  </div>
+  <p class="cap"><b>How to read a score.</b> Attack and defense are percentages. Positioning, consistency and touch are points on a 0 to 100 card, where 100 means no misses of that kind. Ranks are within these four players only.</p>
 </section>
 
-<section class="pair-set" id="db" aria-labelledby="db-title">
-  <h2 id="db-title">Dennis + Brooke</h2>
-  <p class="sides"><b>Dennis</b> left &middot; <b>Brooke</b> right</p>
-
-  <figure class="court">
-    <svg viewBox="0 0 440 232" role="img" aria-labelledby="db-court-title db-court-desc">
-      <title id="db-court-title">Court plan: Dennis left, Brooke right</title>
-      <desc id="db-court-desc">Dennis plays the left side with a poach arrow into the middle. Brooke plays the right and covers the line with an arrow into the left corner. A third arrow runs from the pair toward the opponent's right-side backhand.</desc>
-      <defs>
-        <marker id="db-ink" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker>
-        <marker id="db-soft" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker>
-        <marker id="db-dash" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker>
-      </defs>
-      <rect x="16" y="26" width="408" height="176" fill="none" stroke="var(--rule-2)" stroke-width="1.5"/>
-      <line x1="220" y1="26" x2="220" y2="202" stroke="var(--ink-3)" stroke-width="1.5" stroke-dasharray="7 5"/>
-      <line x1="150" y1="26" x2="150" y2="202" stroke="var(--rule-2)" stroke-width="1.5"/>
-      <line x1="290" y1="26" x2="290" y2="202" stroke="var(--rule-2)" stroke-width="1.5"/>
-      <text x="220" y="19" text-anchor="middle" font-size="12" fill="var(--ink-3)" font-family="var(--sans)">net</text>
-      <text x="150" y="220" text-anchor="middle" font-size="11" fill="var(--ink-3)" font-family="var(--sans)">kitchen line</text>
-      <g font-family="var(--sans)">
-        <circle cx="70" cy="76" r="17" fill="var(--ink)"/>
-        <text x="70" y="81" text-anchor="middle" font-size="15" font-weight="700" fill="var(--paper)">D</text>
-        <text x="96" y="72" font-size="13" font-weight="600" fill="var(--ink)">Dennis</text>
-        <text x="96" y="87" font-size="12" fill="var(--ink-3)">left</text>
-        <circle cx="70" cy="152" r="17" fill="none" stroke="var(--ink)" stroke-width="2"/>
-        <text x="70" y="157" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)">B</text>
-        <text x="96" y="148" font-size="13" font-weight="600" fill="var(--ink)">Brooke</text>
-        <text x="96" y="163" font-size="12" fill="var(--ink-3)">right</text>
-        <circle cx="352" cy="70" r="15" fill="none" stroke="var(--rule-2)" stroke-width="1.5"/>
-        <text x="352" y="75" text-anchor="middle" font-size="11" fill="var(--ink-3)">them</text>
-        <circle cx="352" cy="156" r="15" fill="none" stroke="var(--rule-2)" stroke-width="1.5"/>
-        <text x="352" y="161" text-anchor="middle" font-size="11" fill="var(--ink-3)">them</text>
-      </g>
-      <path d="M88,92 Q140,108 190,116" fill="none" stroke="var(--ink)" stroke-width="2" color="var(--ink)" marker-end="url(#db-ink)"/>
-      <text x="152" y="100" text-anchor="middle" font-size="12" font-weight="600" fill="var(--ink)" font-family="var(--sans)">poach</text>
-      <path d="M60,136 Q40,116 46,96" fill="none" stroke="var(--ink-3)" stroke-width="2" stroke-dasharray="5 4" color="var(--ink-3)" marker-end="url(#db-dash)"/>
-      <path d="M132,124 Q240,146 332,156" fill="none" stroke="var(--ink-3)" stroke-width="1.5" stroke-dasharray="2 4" color="var(--ink-3)" marker-end="url(#db-soft)"/>
-      <text x="250" y="180" text-anchor="middle" font-size="12" fill="var(--ink-3)" stroke="var(--paper)" stroke-width="4" paint-order="stroke" font-family="var(--sans)">their backhand</text>
-    </svg>
-    <figcaption class="court-cap"><span>Solid: Dennis poaches the middle</span><span>Dashed: Brooke covers the line</span><span>Dotted: where to hit&nbsp;it</span></figcaption>
-  </figure>
-
-  <h3>Third shot</h3>
-  <p><strong>Dennis drops.</strong> His drops miss 10.0% of the time (1 of 10). His drives miss 25.0% (3 of 12).</p>
-  <p><strong>Brooke drives.</strong> Her drives miss 11.1% (1 of 9). Her drops miss 36.4% (4 of 11).</p>
-  <p class="rule-line">Dennis drops. Brooke drives.</p>
-
-  <h3>Serve and return</h3>
-  <p>Dennis takes the first serve. The team wins 49.1% of rallies where he serves and 43.6% where Brooke does. Brooke returns deep and safe. Dennis returns deep cross-court and comes in looking for the poach.</p>
-
-  <h3>Who poaches</h3>
-  <p>Dennis poaches 5.0 times per 100 shots, Brooke 0.6. Dennis takes the middle on Brooke's serve and on any weak return. Brooke covers the line and the left side he leaves behind.</p>
-
-  <h3>What to target</h3>
-  <p>Serve deep to the backhand. Return deep cross-court. At the kitchen, Brooke dinks cross-court to the backhand and Dennis attacks the first pop-up. Aim drives and body shots at their right-side player.</p>
-
-  <div class="avoid"><h3>Skip this</h3><p><strong>Brooke's drop.</strong> It misses 36.4% of the time. Drive instead.</p></div>
+<section aria-labelledby="swap-title">
+  <h2 id="swap-title">The A to B move</h2>
+  <p>Two players change partner. Dennis goes from Lindsay to Brooke, Peter from Brooke to Lindsay. Press the button and watch who crosses.</p>
+  <svg class="swap" id="swap" viewBox="0 0 340 220" role="img" aria-labelledby="sw-t sw-d">
+    <title id="sw-t">The A to B partner swap</title>
+    <desc id="sw-d">A court seen from above, net across the middle. In A, Dennis and Lindsay are on our side and Peter and Brooke on theirs. In B, Brooke crosses to our side with Dennis and Lindsay crosses to theirs with Peter. The button moves them between the two arrangements.</desc>
+    <rect x="2" y="2" width="336" height="216" class="court-bg" rx="2"/>
+    <line x1="2" y1="110" x2="338" y2="110" class="net"/>
+    <text x="170" y="106" class="lbl-net">net</text>
+    <text x="170" y="30" class="slot-lbl">their side</text>
+    <text x="170" y="200" class="slot-lbl">our side</text>
+    <g class="node" data-slot="0"><circle cx="0" cy="0" r="16" fill="var(--paper)" stroke="var(--p-dennis)" stroke-width="3"/><text x="0" y="4">D</text></g>
+    <g class="node" data-slot="1"><circle cx="0" cy="0" r="16" fill="var(--paper)" stroke="var(--p-lindsay)" stroke-width="3"/><text x="0" y="4">L</text></g>
+    <g class="node" data-slot="2"><circle cx="0" cy="0" r="16" fill="var(--paper)" stroke="var(--p-peter)" stroke-width="3"/><text x="0" y="4">P</text></g>
+    <g class="node" data-slot="3"><circle cx="0" cy="0" r="16" fill="var(--paper)" stroke="var(--p-brooke)" stroke-width="3"/><text x="0" y="4">B</text></g>
+  </svg>
+  <div class="controls">
+    <button id="swap-btn" type="button" aria-pressed="false">Show the B arrangement</button>
+  </div>
+  <p class="cap"><b>Why it matters.</b> The swap is the whole decision. Everything else on this page is the evidence for it.</p>
 </section>
 
-<section class="pair-set" id="pl" aria-labelledby="pl-title">
-  <h2 id="pl-title">Peter + Lindsay</h2>
-  <p class="sides"><b>Peter</b> left &middot; <b>Lindsay</b> right</p>
-
-  <figure class="court">
-    <svg viewBox="0 0 440 232" role="img" aria-labelledby="pl-court-title pl-court-desc">
-      <title id="pl-court-title">Court plan: Peter left, Lindsay right</title>
-      <desc id="pl-court-desc">Peter plays the left side with a poach arrow into the middle. Lindsay plays the right and covers the line. A dotted arrow runs toward the opponent's left-side backhand.</desc>
-      <defs>
-        <marker id="pl-ink" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker>
-        <marker id="pl-soft" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker>
-        <marker id="pl-dash" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker>
-      </defs>
-      <rect x="16" y="26" width="408" height="176" fill="none" stroke="var(--rule-2)" stroke-width="1.5"/>
-      <line x1="220" y1="26" x2="220" y2="202" stroke="var(--ink-3)" stroke-width="1.5" stroke-dasharray="7 5"/>
-      <line x1="150" y1="26" x2="150" y2="202" stroke="var(--rule-2)" stroke-width="1.5"/>
-      <line x1="290" y1="26" x2="290" y2="202" stroke="var(--rule-2)" stroke-width="1.5"/>
-      <text x="220" y="19" text-anchor="middle" font-size="12" fill="var(--ink-3)" font-family="var(--sans)">net</text>
-      <text x="150" y="220" text-anchor="middle" font-size="11" fill="var(--ink-3)" font-family="var(--sans)">kitchen line</text>
-      <g font-family="var(--sans)">
-        <circle cx="70" cy="76" r="17" fill="var(--ink)"/>
-        <text x="70" y="81" text-anchor="middle" font-size="15" font-weight="700" fill="var(--paper)">P</text>
-        <text x="96" y="72" font-size="13" font-weight="600" fill="var(--ink)">Peter</text>
-        <text x="96" y="87" font-size="12" fill="var(--ink-3)">left</text>
-        <circle cx="70" cy="152" r="17" fill="none" stroke="var(--ink)" stroke-width="2"/>
-        <text x="70" y="157" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)">L</text>
-        <text x="96" y="148" font-size="13" font-weight="600" fill="var(--ink)">Lindsay</text>
-        <text x="96" y="163" font-size="12" fill="var(--ink-3)">right</text>
-        <circle cx="352" cy="70" r="15" fill="none" stroke="var(--rule-2)" stroke-width="1.5"/>
-        <text x="352" y="75" text-anchor="middle" font-size="11" fill="var(--ink-3)">them</text>
-        <circle cx="352" cy="156" r="15" fill="none" stroke="var(--rule-2)" stroke-width="1.5"/>
-        <text x="352" y="161" text-anchor="middle" font-size="11" fill="var(--ink-3)">them</text>
-      </g>
-      <path d="M88,92 Q140,108 190,116" fill="none" stroke="var(--ink)" stroke-width="2" color="var(--ink)" marker-end="url(#pl-ink)"/>
-      <text x="152" y="100" text-anchor="middle" font-size="12" font-weight="600" fill="var(--ink)" font-family="var(--sans)">poach</text>
-      <path d="M60,136 Q40,116 46,96" fill="none" stroke="var(--ink-3)" stroke-width="2" stroke-dasharray="5 4" color="var(--ink-3)" marker-end="url(#pl-dash)"/>
-      <path d="M132,116 Q240,94 332,74" fill="none" stroke="var(--ink-3)" stroke-width="1.5" stroke-dasharray="2 4" color="var(--ink-3)" marker-end="url(#pl-soft)"/>
-      <text x="262" y="64" text-anchor="middle" font-size="12" fill="var(--ink-3)" stroke="var(--paper)" stroke-width="4" paint-order="stroke" font-family="var(--sans)">their backhand</text>
-    </svg>
-    <figcaption class="court-cap"><span>Solid: Peter poaches the middle</span><span>Dashed: Lindsay covers the line</span><span>Dotted: where to hit&nbsp;it</span></figcaption>
-  </figure>
-
-  <h3>Third shot</h3>
-  <p><strong>Peter drops.</strong> His drops miss 15.4% (2 of 13). His drives miss 36.4% (4 of 11).</p>
-  <p><strong>Lindsay drops.</strong> Her drops miss 0.0% (0 of 4). Her drives miss 36.4% (4 of 11).</p>
-  <p class="rule-line">Both drop. Peter finishes.</p>
-
-  <h3>Serve and return</h3>
-  <p>Lindsay takes the first serve. The team wins 51.9% of rallies where she serves and 46.8% where Peter does. Lindsay returns deep cross-court. Peter returns deep and follows it in.</p>
-
-  <h3>Who poaches</h3>
-  <p>Peter poaches 4.5 times per 100 shots, Lindsay 0.6. Peter takes the middle and Lindsay covers the line. When Lindsay speeds up (5.8 per 100 with Peter), Peter holds the middle for the counter.</p>
-
-  <h3>What to target</h3>
-  <p>Serve deep to the backhand, and give Lindsay the tight ones. Return deep cross-court. At the kitchen, Lindsay drops and dinks to the backhand and pulls their right-side player forward while Peter attacks the middle or the short ball.</p>
-
-  <div class="avoid"><h3>Skip this</h3><p><strong>Lindsay's drive.</strong> Her third-shot drives miss 36.4% of the time. Drop instead.</p></div>
+<section aria-labelledby="comp-title">
+  <h2 id="comp-title">What each pair covers</h2>
+  <p>A pairing is not two good players. It is two players whose gaps do not line up. Below, each partner lists what that player covers and the other does not. Where one of them is behind on every card attribute, the line falls back to serve numbers.</p>
+      <div class="pair-card"><h3>Dennis + Brooke</h3><ul class="comp"><li><b>Dennis</b> covers positioning by 16.1, touch by 11.0.</li><li><b>Brooke</b> covers serve safety: 5.2 faults per 100 serves against 6.9.</li></ul></div>
+      <div class="pair-card"><h3>Peter + Lindsay</h3><ul class="comp"><li><b>Peter</b> covers attack by 17.9, defense by 14.2.</li><li><b>Lindsay</b> covers positioning by 15.8.</li></ul></div>
 </section>
 
-<section class="tradeoff" aria-labelledby="tradeoff-title">
-  <h2 id="tradeoff-title">Why not A</h2>
+
+
+<section aria-labelledby="dumb-title">
+  <h2 id="dumb-title">Misses per 100 shots, A partner against B partner</h2>
+  <p>Same player, same shot log, different partner. The hollow dot is the A partner, the filled dot the B partner.</p>
+  <svg viewBox="0 0 340 220" class="chart" role="img" aria-labelledby="db-t db-d"><title id="db-t">Misses per 100 shots with the A partner and with the B partner</title><desc id="db-d">Four rows, one per player. The hollow dot is with the A partner, the filled dot with the B partner. All four players sit further left, meaning fewer misses, on B.</desc><line x1="62.0" y1="24" x2="62.0" y2="172" class="grid"/><text x="62.0" y="192" class="lbl-ax">8%</text><line x1="127.0" y1="24" x2="127.0" y2="172" class="grid"/><text x="127.0" y="192" class="lbl-ax">12%</text><line x1="192.0" y1="24" x2="192.0" y2="172" class="grid"/><text x="192.0" y="192" class="lbl-ax">16%</text><line x1="257.0" y1="24" x2="257.0" y2="172" class="grid"/><text x="257.0" y="192" class="lbl-ax">20%</text><line x1="322.0" y1="24" x2="322.0" y2="172" class="grid"/><text x="322.0" y="192" class="lbl-ax">24%</text><line x1="193.4" y1="40" x2="94.5" y2="40" class="whisker"/><circle cx="193.4" cy="40" r="5.5" class="dot-a"/><circle cx="94.5" cy="40" r="5.5" class="dot-b"/><text x="94.5" y="57" class="lbl-tiny">10.0</text><text x="193.4" y="30" class="lbl-mid">16.1</text><text x="52" y="44" class="lbl-end">Dennis</text><line x1="223.7" y1="76" x2="118.3" y2="76" class="whisker"/><circle cx="223.7" cy="76" r="5.5" class="dot-a"/><circle cx="118.3" cy="76" r="5.5" class="dot-b"/><text x="118.3" y="93" class="lbl-tiny">11.5</text><text x="223.7" y="66" class="lbl-mid">17.9</text><text x="52" y="80" class="lbl-end">Peter</text><line x1="278.5" y1="112" x2="157.4" y2="112" class="whisker"/><circle cx="278.5" cy="112" r="5.5" class="dot-a"/><circle cx="157.4" cy="112" r="5.5" class="dot-b"/><text x="157.4" y="129" class="lbl-tiny">13.9</text><text x="278.5" y="102" class="lbl-mid">21.3</text><text x="52" y="116" class="lbl-end">Lindsay</text><line x1="254.3" y1="148" x2="220.0" y2="148" class="whisker"/><circle cx="254.3" cy="148" r="5.5" class="dot-a"/><circle cx="220.0" cy="148" r="5.5" class="dot-b"/><text x="220.0" y="165" class="lbl-tiny">17.7</text><text x="254.3" y="138" class="lbl-mid">19.8</text><text x="52" y="152" class="lbl-end">Brooke</text><circle cx="70" cy="208" r="5.5" class="dot-a"/><text x="82" y="212" class="lbl-ax" text-anchor="start">with A partner</text><circle cx="184" cy="208" r="5.5" class="dot-b"/><text x="196" y="212" class="lbl-ax" text-anchor="start">with B partner</text></svg>
+  <p class="cap"><b>Read it left to right.</b> Left is fewer misses. All four move left on B, by between 2.1 and 7.5 per 100.</p>
+  <ul class="rows">
+        <li><b>Dennis</b> misses 16.1 per 100 with Lindsay and 10.0 with Brooke.</li>
+        <li><b>Peter</b> misses 17.9 per 100 with Brooke and 11.5 with Lindsay.</li>
+        <li><b>Lindsay</b> misses 21.3 per 100 with Dennis and 13.9 with Peter.</li>
+        <li><b>Brooke</b> misses 19.8 per 100 with Peter and 17.7 with Dennis.</li>
+  </ul>
+</section>
+
+<section aria-labelledby="outcome-title">
+  <h2 id="outcome-title">The outcome is a tie</h2>
+  <p>Both pairings split their games three to three. The four pairs win between 46.7% and 53.3% of their rallies. Every range overlaps every other range, and all four overlap inside the narrow band of 46% to 54% percent, so the outcome cannot pick a winner.</p>
+  <svg viewBox="0 0 340 190" class="chart" role="img" aria-labelledby="dp-t dp-d"><title id="dp-t">Rally win share by pairing, with the likely range</title><desc id="dp-d">Four pairings. Each dot is the share of rallies won; the line is the range the six games support. All four ranges overlap between 46% and 54% percent.</desc><line x1="96.0" y1="18" x2="96.0" y2="168" class="grid"/><text x="96.0" y="184" class="lbl-ax">30%</text><line x1="152.5" y1="18" x2="152.5" y2="168" class="grid"/><text x="152.5" y="184" class="lbl-ax">40%</text><line x1="209.0" y1="18" x2="209.0" y2="168" class="grid"/><text x="209.0" y="184" class="lbl-ax">50%</text><line x1="265.5" y1="18" x2="265.5" y2="168" class="grid"/><text x="265.5" y="184" class="lbl-ax">60%</text><line x1="322.0" y1="18" x2="322.0" y2="168" class="grid"/><text x="322.0" y="184" class="lbl-ax">70%</text><line x1="184.5" y1="34" x2="293.4" y2="34" class="whisker"/><circle cx="225.6" cy="34" r="5" class="dot"/><text x="88" y="38" class="lbl-end">Dennis + Lindsay</text><text x="225.6" y="22" class="lbl-mid">52.9%</text><line x1="124.6" y1="72" x2="233.5" y2="72" class="whisker"/><circle cx="192.4" cy="72" r="5" class="dot"/><text x="88" y="76" class="lbl-end">Peter + Brooke</text><text x="192.4" y="60" class="lbl-mid">47.1%</text><line x1="150.3" y1="110" x2="244.3" y2="110" class="whisker"/><circle cx="190.2" cy="110" r="5" class="dot"/><text x="88" y="114" class="lbl-end">Dennis + Brooke</text><text x="190.2" y="98" class="lbl-mid">46.7%</text><line x1="173.7" y1="148" x2="267.7" y2="148" class="whisker"/><circle cx="227.8" cy="148" r="5" class="dot"/><text x="88" y="152" class="lbl-end">Peter + Lindsay</text><text x="227.8" y="136" class="lbl-mid">53.3%</text></svg>
+  <p class="cap"><b>Dot is the estimate, line is the likely range.</b> The range comes from redrawing the six games four thousand times. Overlap means the six games cannot separate these pairings.</p>
+  <ul class="rows">
+        <li><b>Dennis + Lindsay</b> 52.9% of rallies, 2–1 in three games, likely 45.7 to 64.9.</li>
+        <li><b>Peter + Brooke</b> 47.1% of rallies, 1–2 in three games, likely 35.1 to 54.3.</li>
+        <li><b>Dennis + Brooke</b> 46.7% of rallies, 2–1 in three games, likely 39.6 to 56.2.</li>
+        <li><b>Peter + Lindsay</b> 53.3% of rallies, 1–2 in three games, likely 43.8 to 60.4.</li>
+  </ul>
+</section>
+
+<section aria-labelledby="game-title">
+  <h2 id="game-title">Game by game</h2>
+  <p>Six panels, one per game. Bar height is misses per 100 shots after the serve, in each player's colour.</p>
+  <svg viewBox="0 0 340 250" class="chart" role="img" aria-labelledby="sm-t sm-d"><title id="sm-t">Misses per 100 shots, game by game</title><desc id="sm-d">Six small panels, one per game. Four bars each, one per player, in that player's colour. Bar height is misses per 100 shots after the serve. Dennis is the shortest bar in five of the six games.</desc><text x="10" y="20" class="lbl-panel">G1</text><line x1="8" y1="92" x2="106" y2="92" class="axis"/><rect x="14" y="52.0" width="16" height="40.0" fill="var(--p-dennis)" rx="1"/><text x="22" y="49.0" class="lbl-tiny">25</text><rect x="38" y="41.5" width="16" height="50.5" fill="var(--p-peter)" rx="1"/><text x="46" y="38.5" class="lbl-tiny">32</text><rect x="62" y="70.7" width="16" height="21.3" fill="var(--p-lindsay)" rx="1"/><text x="70" y="67.7" class="lbl-tiny">13</text><rect x="86" y="56.4" width="16" height="35.6" fill="var(--p-brooke)" rx="1"/><text x="94" y="53.4" class="lbl-tiny">22</text><text x="122" y="20" class="lbl-panel">G2</text><line x1="120" y1="92" x2="218" y2="92" class="axis"/><rect x="126" y="65.3" width="16" height="26.7" fill="var(--p-dennis)" rx="1"/><text x="134" y="62.3" class="lbl-tiny">17</text><rect x="150" y="58.0" width="16" height="34.0" fill="var(--p-peter)" rx="1"/><text x="158" y="55.0" class="lbl-tiny">21</text><rect x="174" y="44.9" width="16" height="47.1" fill="var(--p-lindsay)" rx="1"/><text x="182" y="41.9" class="lbl-tiny">29</text><rect x="198" y="47.6" width="16" height="44.4" fill="var(--p-brooke)" rx="1"/><text x="206" y="44.6" class="lbl-tiny">28</text><text x="234" y="20" class="lbl-panel">G6</text><line x1="232" y1="92" x2="330" y2="92" class="axis"/><rect x="238" y="69.1" width="16" height="22.9" fill="var(--p-dennis)" rx="1"/><text x="246" y="66.1" class="lbl-tiny">14</text><rect x="262" y="62.9" width="16" height="29.1" fill="var(--p-peter)" rx="1"/><text x="270" y="59.9" class="lbl-tiny">18</text><rect x="286" y="45.9" width="16" height="46.1" fill="var(--p-lindsay)" rx="1"/><text x="294" y="42.9" class="lbl-tiny">29</text><rect x="310" y="63.3" width="16" height="28.7" fill="var(--p-brooke)" rx="1"/><text x="318" y="60.3" class="lbl-tiny">18</text><text x="10" y="112" class="lbl-panel">G3</text><line x1="8" y1="184" x2="106" y2="184" class="axis"/><rect x="14" y="163.2" width="16" height="20.8" fill="var(--p-dennis)" rx="1"/><text x="22" y="160.2" class="lbl-tiny">13</text><rect x="38" y="161.1" width="16" height="22.9" fill="var(--p-peter)" rx="1"/><text x="46" y="158.1" class="lbl-tiny">14</text><rect x="62" y="154.1" width="16" height="29.9" fill="var(--p-lindsay)" rx="1"/><text x="70" y="151.1" class="lbl-tiny">19</text><rect x="86" y="151.5" width="16" height="32.5" fill="var(--p-brooke)" rx="1"/><text x="94" y="148.5" class="lbl-tiny">20</text><text x="122" y="112" class="lbl-panel">G4</text><line x1="120" y1="184" x2="218" y2="184" class="axis"/><rect x="126" y="172.3" width="16" height="11.7" fill="var(--p-dennis)" rx="1"/><text x="134" y="169.3" class="lbl-tiny">7</text><rect x="150" y="169.1" width="16" height="14.9" fill="var(--p-peter)" rx="1"/><text x="158" y="166.1" class="lbl-tiny">9</text><rect x="174" y="163.5" width="16" height="20.5" fill="var(--p-lindsay)" rx="1"/><text x="182" y="160.5" class="lbl-tiny">13</text><rect x="198" y="165.4" width="16" height="18.6" fill="var(--p-brooke)" rx="1"/><text x="206" y="162.4" class="lbl-tiny">12</text><text x="234" y="112" class="lbl-panel">G7</text><line x1="232" y1="184" x2="330" y2="184" class="axis"/><rect x="238" y="169.9" width="16" height="14.1" fill="var(--p-dennis)" rx="1"/><text x="246" y="166.9" class="lbl-tiny">9</text><rect x="262" y="165.5" width="16" height="18.5" fill="var(--p-peter)" rx="1"/><text x="270" y="162.5" class="lbl-tiny">12</text><rect x="286" y="159.8" width="16" height="24.2" fill="var(--p-lindsay)" rx="1"/><text x="294" y="156.8" class="lbl-tiny">15</text><rect x="310" y="134.8" width="16" height="49.2" fill="var(--p-brooke)" rx="1"/><text x="318" y="131.8" class="lbl-tiny">31</text></svg>
+  <p class="cap"><b>Colours, left to right in every panel:</b> <span class="key k-d">Dennis</span> <span class="key k-p">Peter</span> <span class="key k-l">Lindsay</span> <span class="key k-b">Brooke</span>. One game is not a trend. The panels are here so you can see how much a single game moves a number before you trust the average.</p>
+</section>
+
+<section aria-labelledby="rank-title">
+  <h2 id="rank-title">All five attributes, ranked</h2>
+  <p>Each group is one attribute, sorted best to worst. The same four colours throughout the page.</p>
+  <svg viewBox="0 0 340 360" class="chart" role="img" aria-labelledby="rb-t rb-d"><title id="rb-t">Five attributes, four players, ranked</title><desc id="rb-d">Five groups of four bars. Each group is one attribute, sorted best to worst, with the player name at the left and the value at the end of the bar.</desc><text x="0" y="24" class="lbl-panel">Attack</text><rect x="74" y="30" width="88.5" height="7" fill="var(--p-peter)" rx="1"/><text x="68" y="36" class="lbl-end">Peter</text><text x="166.5" y="36" class="lbl-tiny">38</text><rect x="74" y="41" width="74.0" height="7" fill="var(--p-dennis)" rx="1"/><text x="68" y="47" class="lbl-end">Dennis</text><text x="152.0" y="47" class="lbl-tiny">31</text><rect x="74" y="52" width="61.7" height="7" fill="var(--p-brooke)" rx="1"/><text x="68" y="58" class="lbl-end">Brooke</text><text x="139.7" y="58" class="lbl-tiny">26</text><rect x="74" y="63" width="46.3" height="7" fill="var(--p-lindsay)" rx="1"/><text x="68" y="69" class="lbl-end">Lindsay</text><text x="124.3" y="69" class="lbl-tiny">20</text><text x="0" y="90" class="lbl-panel">Defense</text><rect x="74" y="96" width="171.6" height="7" fill="var(--p-dennis)" rx="1"/><text x="68" y="102" class="lbl-end">Dennis</text><text x="249.6" y="102" class="lbl-tiny">73</text><rect x="74" y="107" width="169.6" height="7" fill="var(--p-peter)" rx="1"/><text x="68" y="113" class="lbl-end">Peter</text><text x="247.6" y="113" class="lbl-tiny">72</text><rect x="74" y="118" width="147.5" height="7" fill="var(--p-brooke)" rx="1"/><text x="68" y="124" class="lbl-end">Brooke</text><text x="225.5" y="124" class="lbl-tiny">62</text><rect x="74" y="129" width="136.2" height="7" fill="var(--p-lindsay)" rx="1"/><text x="68" y="135" class="lbl-end">Lindsay</text><text x="214.2" y="135" class="lbl-tiny">58</text><text x="0" y="156" class="lbl-panel">Positioning</text><rect x="74" y="162" width="137.5" height="7" fill="var(--p-dennis)" rx="1"/><text x="68" y="168" class="lbl-end">Dennis</text><text x="215.5" y="168" class="lbl-tiny">58</text><rect x="74" y="173" width="122.5" height="7" fill="var(--p-lindsay)" rx="1"/><text x="68" y="179" class="lbl-end">Lindsay</text><text x="200.5" y="179" class="lbl-tiny">52</text><rect x="74" y="184" width="99.6" height="7" fill="var(--p-brooke)" rx="1"/><text x="68" y="190" class="lbl-end">Brooke</text><text x="177.6" y="190" class="lbl-tiny">42</text><rect x="74" y="195" width="85.3" height="7" fill="var(--p-peter)" rx="1"/><text x="68" y="201" class="lbl-end">Peter</text><text x="163.3" y="201" class="lbl-tiny">36</text><text x="0" y="222" class="lbl-panel">Consistency</text><rect x="74" y="228" width="204.8" height="7" fill="var(--p-dennis)" rx="1"/><text x="68" y="234" class="lbl-end">Dennis</text><text x="282.8" y="234" class="lbl-tiny">87</text><rect x="74" y="239" width="196.7" height="7" fill="var(--p-peter)" rx="1"/><text x="68" y="245" class="lbl-end">Peter</text><text x="274.7" y="245" class="lbl-tiny">83</text><rect x="74" y="250" width="186.9" height="7" fill="var(--p-lindsay)" rx="1"/><text x="68" y="256" class="lbl-end">Lindsay</text><text x="264.9" y="256" class="lbl-tiny">79</text><rect x="74" y="261" width="186.9" height="7" fill="var(--p-brooke)" rx="1"/><text x="68" y="267" class="lbl-end">Brooke</text><text x="264.9" y="267" class="lbl-tiny">79</text><text x="0" y="288" class="lbl-panel">Touch</text><rect x="74" y="294" width="197.4" height="7" fill="var(--p-peter)" rx="1"/><text x="68" y="300" class="lbl-end">Peter</text><text x="275.4" y="300" class="lbl-tiny">84</text><rect x="74" y="305" width="193.3" height="7" fill="var(--p-dennis)" rx="1"/><text x="68" y="311" class="lbl-end">Dennis</text><text x="271.3" y="311" class="lbl-tiny">82</text><rect x="74" y="316" width="186.9" height="7" fill="var(--p-lindsay)" rx="1"/><text x="68" y="322" class="lbl-end">Lindsay</text><text x="264.9" y="322" class="lbl-tiny">79</text><rect x="74" y="327" width="167.4" height="7" fill="var(--p-brooke)" rx="1"/><text x="68" y="333" class="lbl-end">Brooke</text><text x="245.4" y="333" class="lbl-tiny">71</text></svg>
+  <p class="cap"><b>No player is first at everything.</b> Peter owns attack and touch, Dennis owns defense, positioning and consistency, Lindsay is second at positioning, Brooke converts more of her attacks than Lindsay does.</p>
+</section>
+
+<section aria-labelledby="replay-title">
+  <h2 id="replay-title">One rally, real speed</h2>
+  <p>G6 rally 34, 9 shots, 10.7 seconds. The dots are the four players at their tracked court positions; the small dot is the ball. This is the rally where Dennis's dink goes into the net.</p>
+  <svg viewBox="0 0 348 298" class="court" id="replay" role="img" aria-labelledby="rp-t rp-d"><title id="rp-t">Court replay of one rally</title><desc id="rp-d">A top-down court. Four dots, one per player, move between their real positions at each shot of the rally, and a small ball dot travels from the hitter to where the ball landed. The rally is G6 rally 34, nine shots, ten point seven seconds.</desc><rect x="20" y="20" width="308" height="258" class="court-bg" rx="2"/><line x1="20" y1="149" x2="328" y2="149" class="net"/><line x1="20" y1="78" x2="328" y2="78" class="kitchen"/><line x1="20" y1="220" x2="328" y2="220" class="kitchen"/><line x1="174" y1="20" x2="174" y2="278" class="center"/><text x="174" y="145" class="lbl-net">net</text><text x="174" y="13" class="lbl-net">their side</text><text x="174" y="292" class="lbl-net">our side</text><g class="pl" data-i="0"><circle cx="76.2" cy="28.04" r="8" fill="var(--paper)" stroke="var(--p-brooke)" stroke-width="3"/><text x="76.2" y="31.54" class="lbl-initial">B</text></g><g class="pl" data-i="1"><circle cx="258.15" cy="102.72" r="8" fill="var(--paper)" stroke="var(--p-peter)" stroke-width="3"/><text x="258.15" y="106.22" class="lbl-initial">P</text></g><g class="pl" data-i="2"><circle cx="226.95" cy="273.86" r="8" fill="var(--paper)" stroke="var(--p-lindsay)" stroke-width="3"/><text x="226.95" y="277.36" class="lbl-initial">L</text></g><g class="pl" data-i="3"><circle cx="108.15" cy="274.0" r="8" fill="var(--paper)" stroke="var(--p-dennis)" stroke-width="3"/><text x="108.15" y="277.5" class="lbl-initial">D</text></g><line id="trace" x1="0" y1="0" x2="0" y2="0" class="trace"/><circle id="ball" cx="174" cy="149" r="4" class="ball"/></svg>
+  <div class="controls">
+    <button id="replay-btn" type="button">Play the rally</button>
+    <button id="replay-reset" type="button">Start over</button>
+    <a href="https://pb.vision/video/gvbzqp0uid6o/0?rallyNum=34&amp;t=580" rel="noreferrer" style="align-self:center;font-size:.85rem">Open the video</a>
+  </div>
+  <p class="cap"><b>Positions are tracked, not drawn.</b> Each dot moves between the four players' recorded coordinates at each shot, on a court scaled to the rally's own span. The ball travels from the hitter to where it landed.</p>
+</section>
+
+<section aria-labelledby="playbook-title">
+  <h2 id="playbook-title">The coach's playbook</h2>
+  <p>The call is B. These are the eight things that change it, in the order you would meet them in a game. Each one is a trigger, a call, and the number behind it.</p>
+  <ol class="audibles">
+      <li><span class="trig">First serve of the match, no read on them yet</span><span class="call">Play B. Dennis serves, Brooke drives the third.</span><span class="why">B is the lower-miss pairing: every one of the four misses less with the B partner.</span></li>
+      <li><span class="trig">Their returner is standing deep and floating it</span><span class="call">Play Dennis drops the third and follows it in.</span><span class="why">With Brooke, his drops miss 10.0% (1 of 10); his drives miss 25.0% (3 of 12).</span></li>
+      <li><span class="trig">They are crowding Brooke on the right</span><span class="call">Play Brooke drives instead of dropping, Dennis takes the middle.</span><span class="why">With Dennis, her drop misses 36.4% (4 of 11); her drive misses 11.1% (1 of 9).</span></li>
+      <li><span class="trig">They keep lobbing over Peter</span><span class="call">Play Peter drops, Lindsay takes the lob and resets.</span><span class="why">With Lindsay, Peter's drops miss 15.4% (2 of 13); his drives miss 36.4% (4 of 11).</span></li>
+      <li><span class="trig">They are winning the dink battle on Lindsay</span><span class="call">Play Lindsay drives the third instead of dropping.</span><span class="why">With Peter, her third-shot drives miss 36.4% (4 of 11); her drops miss 0.0% (0 of 4).</span></li>
+      <li><span class="trig">One opposing pair is clearly the weaker one</span><span class="call">Play Switch to A and aim Dennis + Lindsay at that pair.</span><span class="why">A pairs put away 11.1 and 12.3 per 100 against B's 10.7 and 9.1.</span></li>
+      <li><span class="trig">They hand out free balls and never speed up</span><span class="call">Play Switch to A and let Dennis finish.</span><span class="why">A misses more (18.6 and 18.8 per 100) but converts more putaways.</span></li>
+      <li><span class="trig">You are two games down and need a ceiling, not a floor</span><span class="call">Play Switch to A for the rest of the match.</span><span class="why">A is the higher-ceiling, higher-risk pairing. No A pair ever played a B pair, so this is a bet, not a measurement.</span></li>
+  </ol>
+</section>
+
+<section aria-labelledby="serve-title">
+  <h2 id="serve-title">Who serves first</h2>
+  <p>Dennis takes the first serve for B. The team wins 49.1% of rallies where he serves and 43.6% where Brooke does.</p>
+  <p>Lindsay takes the first serve for Peter + Lindsay. The team wins 51.9% of rallies where she serves and 46.8% where Peter does.</p>
+</section>
+
+<section aria-labelledby="third-title">
+  <h2 id="third-title">Third-shot defaults</h2>
+  <p>Each pairing defaults to the shot that misses less often. A has no clean default for Lindsay.</p>
+  <ul class="defaults">
+    <li><span class="pair">D+B</span><span><span class="dflt ">Dennis: Drop</span><span class="nums">12 drives, 3 missed; 10 drops, 1 missed</span></span></li>
+      <li><span class="pair">D+B</span><span><span class="dflt ">Brooke: Drive</span><span class="nums">9 drives, 1 missed; 11 drops, 4 missed</span></span></li>
+      <li><span class="pair">P+L</span><span><span class="dflt ">Peter: Drop</span><span class="nums">11 drives, 4 missed; 13 drops, 2 missed</span></span></li>
+      <li><span class="pair">P+L</span><span><span class="dflt ">Lindsay: Drop</span><span class="nums">11 drives, 4 missed; 4 drops, 0 missed</span></span></li>
+      <li><span class="pair">D+L</span><span><span class="dflt ">Dennis: Drive</span><span class="nums">18 drives, 4 missed; 9 drops, 3 missed</span></span></li>
+      <li><span class="pair">D+L</span><span><span class="dflt none">Lindsay: Neither</span><span class="nums">14 drives, 5 missed; 6 drops, 1 missed</span></span></li>
+      <li><span class="pair">P+B</span><span><span class="dflt none">Peter: Neither</span><span class="nums">18 drives, 10 missed; 6 drops, 2 missed</span></span></li>
+      <li><span class="pair">P+B</span><span><span class="dflt ">Brooke: Drive, barely</span><span class="nums">8 drives, 2 missed; 7 drops, 2 missed</span></span></li>
+  </ul>
+</section>
+
+<section aria-labelledby="kitchen-title">
+  <h2 id="kitchen-title">Kitchen arrivals</h2>
+  <p>Dennis + Brooke get to the kitchen on 45.5% of serve points and 94.4% of return points, against 31.4% and 74.2% for Dennis + Lindsay.</p>
+  <ul class="rows">
+        <li><b>Dennis + Lindsay</b> serve 31.4%, return 74.2%</li>
+        <li><b>Peter + Brooke</b> serve 30.8%, return 85.7%</li>
+        <li><b>Dennis + Brooke</b> serve 45.5%, return 94.4%</li>
+        <li><b>Peter + Lindsay</b> serve 34.4%, return 81.6%</li>
+  </ul>
+</section>
+
+<section aria-labelledby="why-title">
+  <h2 id="why-title">Why not A</h2>
   <p>A is not worse. It is the higher-ceiling, higher-risk choice, and it has messier third-shot roles.</p>
   <p>A's pairs put away more shots (11.1 and 12.3 per 100) and miss more (18.6 and 18.8 per 100). B's put away less (10.7 and 9.1) and miss less (13.6 and 12.7 per 100).</p>
   <ul>
@@ -350,74 +385,31 @@
   <p>No A pair ever played a B pair, so there is no head-to-head. Play A when you need to chase a power mismatch or the opponents hand out free balls.</p>
 </section>
 
-<section class="switch" aria-labelledby="switch-title">
-  <h2 id="switch-title">What would change our mind</h2>
-  <p>These are the triggers, in the order you would meet them. If one is true, play what it names.</p>
-  <ol>
-    <li>No information on the opponents and you need both mixed wins. <b>Play B.</b><span class="pick">Lower error, more kitchen arrivals, clearer roles.</span></li>
-    <li>You need to aim power at one specific opposing pair, and that pair is weak or error-prone. <b>Play A.</b><span class="pick">A lets you put D+L’s power on the weak pair.</span></li>
-    <li>The opposing pairs are strong and steady and give away few free points. <b>Play B.</b><span class="pick">B wins by attrition, while A’s misses get punished.</span></li>
-    <li>The opposing pairs are weak and error-prone and hand out free balls. <b>Play A.</b><span class="pick">A’s finishing converts free balls that B may let drop.</span></li>
-    <li>The format rewards margin or longer games. <b>Play A.</b><span class="pick">More putaways and more finishing power.</span></li>
-    <li>The games are short, win by 2, and weighted equally. <b>Play B.</b><span class="pick">Lower risk and a higher floor.</span></li>
-    <li>Dennis fixes his dink, or Lindsay fixes her drop with Dennis. <b>Play A.</b><span class="pick">Removes A’s main weakness and raises its ceiling.</span></li>
-    <li>Brooke fixes her drop, or Lindsay fixes her drive. <b>Play B.</b><span class="pick">Raises B’s floor and ceiling further.</span></li>
-  </ol>
-  <p class="aside">The favorite/underdog math is worth almost nothing here. Do not use it as a reason.</p>
-</section>
-
-<section class="readings" aria-labelledby="readings-title">
-  <h2 id="readings-title">What the six games show</h2>
-
-  <h3>The outcome is a tie</h3>
-  <p>Both pairings split their games 3 to 3. The four pairs win between 46.7% and 53.3% of their rallies, and every range overlaps every other range. The outcome cannot pick a winner.</p>
-  <div class="result">
-    <div><span class="name">Dennis + Lindsay</span><span class="fig">52.9%</span><span class="note">2–1 in 3 games. Likely 45.7 to 64.9.</span><span class="bar" aria-hidden="true"><i style="left:39.2%;width:48.2%"></i></span></div>
-        <div><span class="name">Peter + Brooke</span><span class="fig">47.1%</span><span class="note">1–2 in 3 games. Likely 35.1 to 54.3.</span><span class="bar" aria-hidden="true"><i style="left:12.7%;width:48.2%"></i></span></div>
-        <div><span class="name">Dennis + Brooke</span><span class="fig">46.7%</span><span class="note">2–1 in 3 games. Likely 39.6 to 56.2.</span><span class="bar" aria-hidden="true"><i style="left:24.0%;width:41.6%"></i></span></div>
-        <div><span class="name">Peter + Lindsay</span><span class="fig">53.3%</span><span class="note">1–2 in 3 games. Likely 43.8 to 60.4.</span><span class="bar" aria-hidden="true"><i style="left:34.4%;width:41.6%"></i></span></div>
-  </div>
-  <p class="scale-note">Bars run from 30% to 70% of rallies won. The dark span is the likely range.</p>
-
-  <h3>The process favors B</h3>
-  <p>Every one of us misses less with the B partner. For Dennis, Peter, and Lindsay the whole range sits below zero, so the direction is dependable. For Brooke it straddles zero: right direction, not yet enough games.</p>
-  <div class="result">
-    <div><span class="name">Dennis</span><span class="note">16.1% with Lindsay, 10.0% with Brooke. 6.1 fewer misses per 100 shots. <span class="tag g">Fairly sure</span></span><span class="fig"></span></div>
-        <div><span class="name">Peter</span><span class="note">17.9% with Brooke, 11.5% with Lindsay. 6.5 fewer misses per 100 shots. <span class="tag g">Fairly sure</span></span><span class="fig"></span></div>
-        <div><span class="name">Lindsay</span><span class="note">21.3% with Dennis, 13.9% with Peter. 7.5 fewer misses per 100 shots. <span class="tag g">Fairly sure</span></span><span class="fig"></span></div>
-        <div><span class="name">Brooke</span><span class="note">19.8% with Peter, 17.7% with Dennis. 2.1 fewer misses per 100 shots. <span class="tag a">Directional</span></span><span class="fig"></span></div>
-  </div>
-
-  <h3>B reaches the kitchen more often on serve</h3>
-  <p>Dennis + Brooke get there on 45.5% of serve points and 94.4% of return points, against 31.4% and 74.2% for Dennis + Lindsay.</p>
-  <div class="result">
-    <div><span class="name">Dennis + Lindsay</span><span class="note">serve 31.4%, return 74.2%</span><span class="fig"></span></div>
-        <div><span class="name">Peter + Brooke</span><span class="note">serve 30.8%, return 85.7%</span><span class="fig"></span></div>
-        <div><span class="name">Dennis + Brooke</span><span class="note">serve 45.5%, return 94.4%</span><span class="fig"></span></div>
-        <div><span class="name">Peter + Lindsay</span><span class="note">serve 34.4%, return 81.6%</span><span class="fig"></span></div>
-  </div>
-
-  <h3>The third-shot roles are cleaner</h3>
-  <p>Each pairing defaults to the shot that misses less often. A has no clean default for Lindsay.</p>
-  <ul class="defaults">
-    <li><span class="pair">Dennis + Brooke<br>Dennis</span><span class="dflt ">Drop</span><span class="nums">12 drives, 3 missed; 10 drops, 1 missed</span></li>
-      <li><span class="pair">Dennis + Brooke<br>Brooke</span><span class="dflt ">Drive</span><span class="nums">9 drives, 1 missed; 11 drops, 4 missed</span></li>
-      <li><span class="pair">Peter + Lindsay<br>Peter</span><span class="dflt ">Drop</span><span class="nums">11 drives, 4 missed; 13 drops, 2 missed</span></li>
-      <li><span class="pair">Peter + Lindsay<br>Lindsay</span><span class="dflt ">Drop</span><span class="nums">11 drives, 4 missed; 4 drops, 0 missed</span></li>
-      <li><span class="pair">Dennis + Lindsay<br>Dennis</span><span class="dflt ">Drive</span><span class="nums">18 drives, 4 missed; 9 drops, 3 missed</span></li>
-      <li><span class="pair">Dennis + Lindsay<br>Lindsay</span><span class="dflt none">Neither</span><span class="nums">14 drives, 5 missed; 6 drops, 1 missed</span></li>
-      <li><span class="pair">Peter + Brooke<br>Peter</span><span class="dflt none">Neither</span><span class="nums">18 drives, 10 missed; 6 drops, 2 missed</span></li>
-      <li><span class="pair">Peter + Brooke<br>Brooke</span><span class="dflt ">Drive, barely</span><span class="nums">8 drives, 2 missed; 7 drops, 2 missed</span></li>
+<section aria-labelledby="claims-title">
+  <h2 id="claims-title">The numbered claims, counted</h2>
+  <p>Every claim on this page that carries a number, listed once. The audit script counts them: each player needs at least one strength and one weakness, and no player may own more than a third.</p>
+  <ul class="claims">
+      <li data-claim="Dennis Pavlyuk" data-kind="strength">Dennis owns the best consistency of the four at 86.8 on a 0 to 100 card.</li>
+      <li data-claim="Dennis Pavlyuk" data-kind="strength">Dennis owns the best defense of the four at 72.7% of hard balls answered without a miss.</li>
+      <li data-claim="Dennis Pavlyuk" data-kind="weakness">Dennis misses dinks at 38.5% (5 of 13), the worst dink rate of the four.</li>
+      <li data-claim="Peter Riggs" data-kind="strength">Peter owns the best attack of the four at 37.5 putaways per 100 attacks.</li>
+      <li data-claim="Peter Riggs" data-kind="strength">Peter owns the best touch of the four at 83.7 on a 0 to 100 card.</li>
+      <li data-claim="Peter Riggs" data-kind="weakness">Peter has the lowest positioning of the four, 36.1, and he reaches the kitchen on only 50.0% of his own serves in G1.</li>
+      <li data-claim="Lindsay Watkins" data-kind="strength">Lindsay is second at positioning, 51.9 against Peter's 36.1, and she missed 0 of her 54 serves.</li>
+      <li data-claim="Lindsay Watkins" data-kind="weakness">Lindsay has the lowest attack of the four at 19.6 putaways per 100 attacks.</li>
+      <li data-claim="Brooke Nichols" data-kind="strength">Brooke converts more of her attacks than Lindsay does: 26.1 putaways per 100 against 19.6.</li>
+      <li data-claim="Brooke Nichols" data-kind="weakness">Brooke has the lowest touch of the four at 70.9, and her drops miss 36.4% (4 of 11).</li>
   </ul>
 </section>
 
 <section aria-labelledby="caveats-title">
   <h2 id="caveats-title">What could be fooling us</h2>
   <ul class="caveats">
-    <li><strong>The shot labels are imperfect.</strong> In 60 of 219 rallies (27.4%) the final-shot label disagrees with who won. Everything here uses the rally winner to correct the final shot, so these fault rates differ slightly from the raw tags. The pattern holds after the correction.</li>
-    <li><strong>The opponents were not the same.</strong> A pairs faced opponents who put away 11.7 shots per 100; B pairs faced 9.9. Some of B's lower error rate may simply be less pressure. Read the fault advantage as suggestive, not proven.</li>
-    <li><strong>Six games is a small sample.</strong> Three per pairing. A few more games could flip the outcome lean.</li>
-    <li><strong>No A pair played a B pair.</strong> There is no matchup data. This is a tradeoff, not a proven ranking.</li>
+    <li><b>The shot labels are imperfect.</b> In 60 of 219 rallies (27.4%) the final-shot label disagrees with who won. Everything here uses the rally winner to correct the final shot, so these rates differ slightly from the raw tags. The pattern holds after the correction.</li>
+    <li><b>The opponents were not the same.</b> A pairs faced opponents who put away 11.7 shots per 100; B pairs faced 9.9. Some of B's lower error rate may simply be less pressure. Read the fault advantage as suggestive, not proven.</li>
+    <li><b>Six games is a small sample.</b> Three per pairing. A few more games could flip the outcome lean.</li>
+    <li><b>No A pair played a B pair.</b> There is no matchup data. This is a tradeoff, not a proven ranking.</li>
+    <li><b>The position columns in the shot log are not coordinates.</b> The two 0 to 1 columns named for shooter and partner position are positioning quality scores, not lateral court positions. The positioning attribute therefore reads the raw four-player court coordinates instead.</li>
   </ul>
 </section>
 
@@ -425,7 +417,7 @@
   <h2 id="rallies-title">Ten rallies to check</h2>
   <p>These are the rallies behind the claims. A coach can spot-check them against the video; none of this analysis watched the video.</p>
   <ul class="rallies">
-    <li><span class="what">Dennis’s dink goes into the net. This is the dink that costs A points.</span><span class="where">D+L &middot; G6 &middot; 9:40 &middot; <a href="https://pb.vision/video/gvbzqp0uid6o/0?rallyNum=34&t=580" rel="noreferrer">Open in PB Vision</a></span></li>
+      <li><span class="what">Dennis’s dink goes into the net. This is the dink that costs A points.</span><span class="where">D+L &middot; G6 &middot; 9:40 &middot; <a href="https://pb.vision/video/gvbzqp0uid6o/0?rallyNum=34&t=580" rel="noreferrer">Open in PB Vision</a></span></li>
       <li><span class="what">Lindsay’s third-shot drop goes into the net. With Dennis, her drop is the risky shot.</span><span class="where">D+L &middot; G6 &middot; 1:00 &middot; <a href="https://pb.vision/video/gvbzqp0uid6o/0?rallyNum=5&t=60" rel="noreferrer">Open in PB Vision</a></span></li>
       <li><span class="what">Brooke’s drop lands out, which is why she should drive in this pairing.</span><span class="where">D+B &middot; G4 &middot; 1:24 &middot; <a href="https://pb.vision/video/hhivm9ri5oqk/0?rallyNum=4&t=84" rel="noreferrer">Open in PB Vision</a></span></li>
       <li><span class="what">Peter’s third-shot drive goes into the net, the shot that misses 56% of the time with Brooke.</span><span class="where">P+B &middot; G6 &middot; 6:35 &middot; <a href="https://pb.vision/video/gvbzqp0uid6o/0?rallyNum=24&t=395" rel="noreferrer">Open in PB Vision</a></span></li>
@@ -438,14 +430,14 @@
   </ul>
 </section>
 
-<section class="assume" aria-labelledby="assume-title">
+<section aria-labelledby="assume-title">
   <h2 id="assume-title">What we assumed</h2>
   <ul>
     <li>Two mixed games per team match, equal weight. Each pair faces one opposing mixed pair.</li>
     <li>Side-out scoring to 11, win by 2. G3 was to 15; G7 was shortened (8–7). Margins were normalized where used, so the raw scores do not compare across games.</li>
     <li>No order or fatigue effects, and the opposing pairs are comparable in strength.</li>
     <li>The goal is the most mixed-game wins over time, not the most points.</li>
-    <li>If the format switches to rally scoring, point-differential weighting, or a dream breaker, the risk/ceiling tradeoff changes and the switch table needs a rerun.</li>
+    <li>If the format switches to rally scoring, point-differential weighting, or a dream breaker, the risk and ceiling tradeoff changes and the playbook needs a rerun.</li>
   </ul>
 </section>
 
@@ -459,19 +451,136 @@
     <li><span>For Peter + Lindsay, who takes the first serve?</span><details><summary>Show answer</summary><p>Lindsay. The team wins 51.9% of rallies where she serves and 46.8% where Peter does.</p></details></li>
     <li><span>When should we switch to A?</span><details><summary>Show answer</summary><p>When you need to chase one weak opposing pair, when those pairs are error-prone, or when the format rewards margin. Otherwise stay on B.</p></details></li>
   </ol>
-  <div class="reveal"><button id="reveal" type="button">Reveal all answers</button></div>
+  <h3>Three chart questions</h3>
+  <p>These test the charts, not the argument.</p>
+  <ol class="quiz">
+    <li><span>On the dot plot, do any two pairings have ranges that do not overlap?</span><details><summary>Show answer</summary><p>No. All four ranges overlap between 46% and 54%, so the six games cannot separate them.</p></details></li>
+    <li><span>On the game-by-game panels, whose bar is shortest most often?</span><details><summary>Show answer</summary><p>Dennis, in 5 of the 6 games.</p></details></li>
+    <li><span>On the A to B chart, whose move is smallest, and how big is it?</span><details><summary>Show answer</summary><p>Brooke, 2.1 fewer misses per 100 shots. All four move left, but that one barely does.</p></details></li>
+  </ol>
+  <div class="controls"><button id="reveal" type="button">Reveal all answers</button></div>
 </section>
 
-<p class="colophon">Built from the six mixed games on Nov 11. Every number comes from the shot data. Nothing here is estimated by hand.</p>
+<p class="colophon">
+  <p>Prepared by Dennis Pavlyuk, who is one of the four players on this page. The bias audit above exists because of that.</p>
+  <p>Built from the six mixed games on Nov 11. Every number comes from the shot data. Nothing here is estimated by hand.</p>
+</p>
 
 </main>
 <script>
-  document.getElementById('reveal').addEventListener('click', function () {
-    var answers = document.querySelectorAll('details');
-    for (var i = 0; i < answers.length; i++) answers[i].open = true;
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  // Cards: flip on tap, real buttons, keyboard included.
+  var cards = document.querySelectorAll('.card');
+  for (var i = 0; i < cards.length; i++) {
+    cards[i].addEventListener('click', function () {
+      var on = this.getAttribute('aria-pressed') === 'true';
+      this.setAttribute('aria-pressed', on ? 'false' : 'true');
+      this.querySelector('.face.front').setAttribute('aria-hidden', on ? 'false' : 'true');
+      this.querySelector('.face.back').setAttribute('aria-hidden', on ? 'true' : 'false');
+    });
+  }
+
+  // Reveal all answers.
+  var reveal = document.getElementById('reveal');
+  if (reveal) reveal.addEventListener('click', function () {
+    var d = document.querySelectorAll('details');
+    for (var j = 0; j < d.length; j++) d[j].open = true;
     this.disabled = true;
     this.textContent = 'Answers shown';
   });
+
+  // A to B swap: four players, two arrangements.
+  var swap = document.getElementById('swap');
+  var swapBtn = document.getElementById('swap-btn');
+  var A = [[100, 160], [240, 160], [100, 60], [240, 60]];
+  var B = [[100, 160], [240, 60], [100, 60], [240, 160]];
+  var nodes = swap.querySelectorAll('.node');
+  function place(which) {
+    var pos = which === 'B' ? B : A;
+    for (var k = 0; k < nodes.length; k++) {
+      nodes[k].style.transform = 'translate(' + pos[k][0] + 'px,' + pos[k][1] + 'px)';
+    }
+  }
+  place('A');
+  if (swapBtn) swapBtn.addEventListener('click', function () {
+    var on = this.getAttribute('aria-pressed') === 'true';
+    this.setAttribute('aria-pressed', on ? 'false' : 'true');
+    place(on ? 'A' : 'B');
+    this.textContent = on ? 'Show the B arrangement' : 'Show the A arrangement';
+  });
+
+  // Rally replay: real timestamps, real tracked positions.
+  var rep = {"game":"G6","rally":34,"dur":10733,"players":["Brooke Nichols","Peter Riggs","Lindsay Watkins","Dennis Pavlyuk"],"teams":[0,0,1,1],"shots":[{"t":500,"e":1433,"who":"Lindsay Watkins","team":1,"pos":[[76.2,28.04],[258.15,102.72],[226.95,273.86],[108.15,274.0]],"ball":[[225.81,273.38],[144.38,84.93]]},{"t":1866,"e":3366,"who":"Brooke Nichols","team":0,"pos":[[87.45,24.0],[250.35,103.42],[200.25,265.5],[142.35,265.22]],"ball":[[135.21,46.32],[99.12,248.5]]},{"t":3700,"e":4800,"who":"Dennis Pavlyuk","team":1,"pos":[[88.35,104.55],[191.4,106.8],[225.15,255.73],[87.3,273.58]],"ball":[[99.99,264.77],[314.82,117.33]]},{"t":5133,"e":6033,"who":"Peter Riggs","team":0,"pos":[[129.0,104.97],[303.0,76.98],[238.65,247.14],[100.95,247.84]],"ball":[[329.34,102.73],[191.91,221.19]]},{"t":6400,"e":7300,"who":"Dennis Pavlyuk","team":1,"pos":[[143.1,105.02],[300.75,75.47],[238.8,239.48],[137.25,241.03]],"ball":[[152.52,237.51],[262.74,111.52]]},{"t":7300,"e":8100,"who":"Peter Riggs","team":0,"pos":[[139.5,105.86],[251.85,101.82],[241.65,228.77],[120.45,224.03]],"ball":[[262.74,111.52],[201.19,197.26]]},{"t":8333,"e":9200,"who":"Lindsay Watkins","team":1,"pos":[[124.65,111.73],[237.0,111.36],[229.35,227.17],[202.65,220.04]],"ball":[[230.09,220.42],[260.13,124.6]]},{"t":9200,"e":9566,"who":"Peter Riggs","team":0,"pos":[[127.35,103.84],[258.6,109.9],[219.3,219.99],[144.6,209.99]],"ball":[[260.13,124.6],[150.35,206.23]]},{"t":9566,"e":10033,"who":"Dennis Pavlyuk","team":1,"pos":[[140.1,107.18],[267.3,111.07],[223.05,221.87],[128.55,207.82]],"ball":[[150.35,206.23],[142.8,155.48]]}],"url":"https://pb.vision/video/gvbzqp0uid6o/0?rallyNum=34&t=580"};
+  var svg = document.getElementById('replay');
+  var ball = document.getElementById('ball');
+  var dots = svg.querySelectorAll('.pl');
+  var btn = document.getElementById('replay-btn');
+  var trace = document.getElementById('trace');
+  var raf = null;
+
+  // Start from zero on load or when the user asks, so the first frame is always the serve.
+  window.restartReplay = function () {
+    if (raf) { cancelAnimationFrame(raf); raf = null; }
+    btn.disabled = false;
+    btn.textContent = 'Play the rally';
+    draw(0);
+  };
+
+  function at(t) {
+    var s = rep.shots[0];
+    for (var k = 0; k < rep.shots.length; k++) {
+      if (rep.shots[k].t <= t) s = rep.shots[k];
+    }
+    return s;
+  }
+  function draw(t) {
+    var s = at(t);
+    for (var k = 0; k < dots.length; k++) {
+      var p = s.pos[k];
+      dots[k].querySelector('circle').setAttribute('cx', p[0]);
+      dots[k].querySelector('circle').setAttribute('cy', p[1]);
+      dots[k].querySelector('text').setAttribute('x', p[0]);
+      dots[k].querySelector('text').setAttribute('y', p[1] + 3.5);
+    }
+    if (s.ball) {
+      var span = Math.max(1, s.e - s.t);
+      var f = Math.min(1, Math.max(0, (t - s.t) / span));
+      var bx = s.ball[0][0] + (s.ball[1][0] - s.ball[0][0]) * f;
+      var by = s.ball[0][1] + (s.ball[1][1] - s.ball[0][1]) * f;
+      ball.setAttribute('cx', bx);
+      ball.setAttribute('cy', by);
+      trace.setAttribute('x1', s.ball[0][0]);
+      trace.setAttribute('y1', s.ball[0][1]);
+      trace.setAttribute('x2', bx);
+      trace.setAttribute('y2', by);
+      trace.style.opacity = f > 0 ? 1 : 0;
+    }
+  }
+  function play() {
+    if (raf) cancelAnimationFrame(raf);
+    draw(0);
+    var start = null;
+    function step(ts) {
+      if (start === null) start = ts;
+      var t = ts - start;
+      if (t > rep.dur) { draw(rep.dur); btn.textContent = 'Play the rally'; btn.disabled = false; raf = null; return; }
+      draw(t);
+      raf = requestAnimationFrame(step);
+    }
+    btn.disabled = true;
+    btn.textContent = 'Playing';
+    raf = requestAnimationFrame(step);
+  }
+  draw(0);
+  if (btn) btn.addEventListener('click', function () {
+    if (reduce.matches) { draw(rep.dur); return; }
+    play();
+  });
+  var reset = document.getElementById('replay-reset');
+  if (reset) reset.addEventListener('click', function () { window.restartReplay(); });
+})();
 </script>
 </body>
 </html>
