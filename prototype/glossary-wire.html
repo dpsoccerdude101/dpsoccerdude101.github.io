@@ -16,7 +16,9 @@ Real values from the shot log (card_metrics.py). No scoreline anywhere.
   * { box-sizing:border-box; }
   body { margin:0; background:#e9e9e9;
          font:16px/1.45 ui-sans-serif,system-ui,-apple-system,sans-serif; color:var(--ink); }
-  .phone { width:320px; margin:16px auto 96px; background:var(--bg);
+  * { min-width:0; }
+  html, body { overflow-wrap:anywhere; }
+  .phone { width:320px; max-width:100%; margin:16px auto 96px; background:var(--bg);
            border:1px solid #999; min-height:640px; padding:16px 14px 24px; }
   .chrome { display:flex; justify-content:space-between; font-size:11px;
             letter-spacing:.06em; text-transform:uppercase; color:var(--dim);
@@ -33,12 +35,12 @@ Real values from the shot log (card_metrics.py). No scoreline anywhere.
   .dots { display:flex; gap:4px; align-items:center; }
   .dots i { width:10px; height:10px; border:1px solid var(--ink); border-radius:50%; display:block; }
   .dots i.on { background:var(--ink); }
-  .row { display:flex; justify-content:space-between; align-items:center; gap:8px; padding:5px 0; flex-wrap:wrap;
+  .row { display:flex; justify-content:space-between; align-items:center; gap:8px; padding:5px 0;
          border-bottom:1px dotted var(--line); }
   .tag { display:inline-block; font-size:11px; border:1px solid var(--line); padding:0 5px;
          text-transform:uppercase; letter-spacing:.06em; }
   .fill { height:10px; background:var(--wash); border:1px solid var(--line); }
-  nav.bottom { position:fixed; left:50%; transform:translateX(-50%); bottom:14px;
+  nav.bottom { position:fixed; left:50%; transform:translateX(-50%); bottom:14px; max-width:94vw; white-space:nowrap; z-index:5;
                display:flex; align-items:center; gap:10px; background:#111; color:#fff;
                border-radius:999px; padding:8px 12px; font-size:13px; }
   nav.bottom button { background:none; border:1px solid #666; color:#fff; border-radius:6px;
