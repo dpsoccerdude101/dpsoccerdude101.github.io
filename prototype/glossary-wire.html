@@ -242,7 +242,7 @@ function variantC() {
 
 const V = { A: variantA, B: variantB, C: variantC, D: variantD };
 const NAMES = { A:'playbook', B:'questions', C:'cards', D:'board' };
-let cur = (new URLSearchParams(location.search).get('variant') || 'D').toUpperCase();
+let cur = (new URLSearchParams(location.search).get('variant') || 'A').toUpperCase();
 if (!V[cur]) cur = 'D';
 
 const bar = document.createElement('nav');
