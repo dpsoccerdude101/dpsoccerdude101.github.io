@@ -1,0 +1,226 @@
+<!doctype html>
+<!--
+PROTOTYPE — throwaway. Answers one question for ticket #8 (glossary):
+what does the page's unit of content look like, and in which words?
+Three variants, switchable with ← → or the pill at the bottom.
+Wireframe fidelity: boxes, one type scale, no colour decisions.
+Real values from the shot log (card_metrics.py). No scoreline anywhere.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PROTOTYPE · what the page shows</title>
+<style>
+  :root { --ink:#111; --dim:#666; --line:#bbb; --bg:#fff; --wash:#f4f4f4; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:#e9e9e9;
+         font:16px/1.45 ui-sans-serif,system-ui,-apple-system,sans-serif; color:var(--ink); }
+  .phone { width:320px; margin:16px auto 96px; background:var(--bg);
+           border:1px solid #999; min-height:640px; padding:16px 14px 24px; }
+  .chrome { display:flex; justify-content:space-between; font-size:11px;
+            letter-spacing:.06em; text-transform:uppercase; color:var(--dim);
+            border-bottom:1px solid var(--line); padding-bottom:6px; margin-bottom:14px; }
+  .wf { border:1px dashed var(--line); padding:8px; margin:0 0 10px; }
+  .wf::before { content:attr(data-box); display:block; font-size:10px; letter-spacing:.08em;
+                text-transform:uppercase; color:var(--dim); margin-bottom:4px; }
+  h2 { font-size:20px; margin:0 0 6px; }
+  h3 { font-size:15px; margin:0 0 4px; }
+  p { margin:0 0 8px; }
+  .big { font-size:19px; font-weight:600; margin:0 0 6px; }
+  .dim { color:var(--dim); }
+  .small { font-size:13px; }
+  .dots { display:flex; gap:4px; align-items:center; }
+  .dots i { width:10px; height:10px; border:1px solid var(--ink); border-radius:50%; display:block; }
+  .dots i.on { background:var(--ink); }
+  .row { display:flex; justify-content:space-between; align-items:center; gap:8px; padding:5px 0; flex-wrap:wrap;
+         border-bottom:1px dotted var(--line); }
+  .tag { display:inline-block; font-size:11px; border:1px solid var(--line); padding:0 5px;
+         text-transform:uppercase; letter-spacing:.06em; }
+  .fill { height:10px; background:var(--wash); border:1px solid var(--line); }
+  nav.bottom { position:fixed; left:50%; transform:translateX(-50%); bottom:14px;
+               display:flex; align-items:center; gap:10px; background:#111; color:#fff;
+               border-radius:999px; padding:8px 12px; font-size:13px; }
+  nav.bottom button { background:none; border:1px solid #666; color:#fff; border-radius:6px;
+                      font:inherit; padding:2px 8px; cursor:pointer; }
+  nav.bottom button:focus-visible { outline:2px solid #fff; outline-offset:2px; }
+  .legend { width:320px; margin:0 auto; font-size:12px; color:#333; }
+  .legend code { background:#fff; padding:0 3px; }
+</style>
+</head>
+<body>
+<main class="phone" id="phone"></main>
+
+<div class="legend">
+  <p><b>← / →</b> switches the three ways of naming what the page shows. Same real data in all three.</p>
+  <p><b>A — sections of one playbook:</b> no "card", no "deck". The page is a short document; "pairing" is never a noun; each measured thing is a row you scan.</p>
+  <p><b>B — answers to the player's own questions:</b> every block is headed by the question it answers. Attribute names stay as sentences; the "best / worst of the four" dot is the whole scale.</p>
+  <p><b>C — cards:</b> the deck metaphor survives. One thing per card, a number at the bottom ("3 of 14"), player attributes as five plain-word rows.</p>
+  <p>Test for each: <i>which two do I play with, and what changes when they lob?</i> — answered without scrolling back?</p>
+</div>
+
+<script>
+const PLAYERS = [
+  { name:'Dennis', role:'the wall', rows:[['attack','2nd best'],['defence','best'],['positioning','best'],['consistency','best'],['touch','2nd best']], rank:{attack:2,defence:1,positioning:1,consistency:1,touch:2} },
+  { name:'Peter',  role:'the finisher', rows:[['attack','best'],['defence','2nd best'],['positioning','worst'],['consistency','2nd best'],['touch','best']], rank:{attack:1,defence:2,positioning:4,consistency:2,touch:1} },
+  { name:'Lindsay',role:'the steady one', rows:[['attack','worst'],['defence','worst'],['positioning','2nd best'],['consistency','3rd'],['touch','3rd']], rank:{attack:4,defence:4,positioning:2,consistency:3,touch:3} },
+  { name:'Brooke', role:'the soft hands', rows:[['attack','3rd'],['defence','3rd'],['positioning','3rd'],['consistency','worst'],['touch','worst']], rank:{attack:3,defence:3,positioning:3,consistency:4,touch:4} },
+];
+
+const dots = (r) => `<span class="dots" aria-label="rank ${r} of 4">${
+  [1,2,3,4].map(i => `<i class="${i===r?'on':''}"></i>`).join('')}</span>`;
+
+function chrome(n) {
+  return `<div class="chrome"><span>Wire ${n}</span><span>320 px</span></div>`;
+}
+
+function variantA() {
+  return chrome('A · playbook') + `
+  <h2>Dennis and Brooke with Peter and Lindsay</h2>
+  <p class="dim small">Read in about a minute. Every line says where it came from.</p>
+
+  <div class="wf" data-box="already looked: top">
+    <p class="small">Your four, five things each, measured from the games.</p>
+    ${PLAYERS.map(p => `<div class="row"><span>${p.name} — ${p.role}</span>
+      <span class="small dim">${p.rows.filter(r=>r[1]==='best').map(r=>r[0]).join(', ')||'—'}</span></div>`).join('')}
+  </div>
+
+  <div class="wf" data-box="who plays with whom">
+    <div class="row"><b>Dennis and Brooke</b><span class="small">played</span></div>
+    <div class="row"><b>Peter and Lindsay</b><span class="small">played</span></div>
+    <div class="row"><b>Dennis and Lindsay</b><span class="small">not in our games</span></div>
+    <div class="row"><b>Peter and Brooke</b><span class="small">not in our games</span></div>
+    <p class="small" style="margin-top:8px">Every one of us misses less next to the other one below.
+      Dennis misses 16 in 100 next to Lindsay, 10 next to Brooke; Peter 11 next to Lindsay, 18 next to Brooke.
+      Do not read it as who is better — we never played one pair against the other.</p>
+  </div>
+
+  <div class="wf" data-box="what changes when they lob">
+    <p><b>They lob over the net player.</b> The net player turns and runs back;
+      the deep player takes it and brings it back short. Say «mine» early.</p>
+    <p class="small dim">Not in this data: the log does not record where you stood when you answered.</p>
+  </div>
+
+  <div class="wf" data-box="attribute rows, sample">
+    ${PLAYERS.map(p => `<h3>${p.name}</h3>` + p.rows.map(r =>
+      `<div class="row"><span class="small">${r[0]}</span>${dots(p.rank[r[0]])}
+       <span class="small dim" style="width:64px;text-align:right">${r[1]} of the four</span></div>`).join('')).join('')}
+  </div>`;
+}
+
+function variantB() {
+  return chrome('B · questions') + `
+  <h2>Thursday, the four of us</h2>
+
+  <div class="wf" data-box="the one answer">
+    <p class="big">Who do we play with?</p>
+    <p>You and Brooke. Peter and Lindsay.</p>
+    <p class="small dim">Two other combinations have not happened in our games at all.</p>
+  </div>
+
+  <div class="wf" data-box="why">
+    <p class="big">Why these two?</p>
+    <p>Each of you misses less beside your partner. Dennis, 16 misses in 100 beside Lindsay,
+      10 beside Brooke. Peter, 11 beside Lindsay, 18 beside Brooke.</p>
+    <p>Lindsay, you and Brooke are the two who miss more — that is a job for the two of you to share,
+      not a ranking of you.</p>
+  </div>
+
+  <div class="wf" data-box="when it breaks">
+    <p class="big">They lob over the player at the net — now what?</p>
+    <p>The player at the net turns and runs to the back corner; the player at the back
+      takes it and returns it short, back to their feet.</p>
+    <p class="small dim">Nothing in our games shows this: the log has no record of who stood where.</p>
+  </div>
+
+  <div class="wf" data-box="the rest, by question">
+    <div class="row"><span>Who is best at what?</span>${dots(1)}<span class="small dim">five per player</span></div>
+    <div class="row"><span>What do I change on the third shot?</span>${dots(1)}<span class="small dim">two rules</span></div>
+    <div class="row"><span>What did we play in each game?</span>${dots(1)}<span class="small dim">seven games</span></div>
+  </div>
+
+  <div class="wf" data-box="one player, by question">
+    <h3>Dennis — the wall</h3>
+    <div class="row"><span class="small">Best at</span><span class="small">defence, positioning, consistency</span></div>
+    <div class="row"><span class="small">Worst at</span><span class="small">attack, touch — 2nd best, which is why the pairing puts Peter beside you</span></div>
+  </div>`;
+}
+
+function variantC() {
+  return chrome('C · cards') + `
+  <h2>Dennis and Brooke</h2>
+  <p class="big">with Peter and Lindsay.</p>
+  <p class="small dim">The two we play.</p>
+
+  <div class="wf" data-box="card 4 of 14 · a player">
+    <div style="display:flex;justify-content:space-between;align-items:baseline">
+      <h3>Dennis</h3><span class="tag">the wall</span>
+    </div>
+    <p class="small">Everybody looks steadier next to you. Miss the boring shot.</p>
+  </div>
+
+  <div class="wf" data-box="card 5 of 14 · the same player, flipped">
+    ${PLAYERS[0].rows.map(r => `
+      <div class="row"><span class="small">${r[0]}</span>${dots(PLAYERS[0].rank[r[0]])}
+      <span class="small dim" style="width:70px;text-align:right">${r[1]}</span></div>`).join('')}
+    <p class="small dim" style="margin-top:8px">Five things, all measured from the games; the dot is
+      where you sit among the four.</p>
+  </div>
+
+  <div class="wf" data-box="card 9 of 14 · a pair">
+    <h3>Dennis and Brooke</h3>
+    <p class="small">Dennis misses 10 in 100 next to Brooke — 16 next to Lindsay.</p>
+    <p class="small">Brooke misses 18 in 100 next to Dennis.</p>
+  </div>
+
+  <div class="wf" data-box="card 10 of 14 · a pair that has not happened">
+    <h3>Dennis and Lindsay</h3>
+    <p class="small dim">Not in our games. Nothing to show.</p>
+  </div>
+
+  <div class="wf" data-box="card 12 of 14 · a rule">
+    <h3>They lob over the net player</h3>
+    <p class="small">Net player runs back; deep player returns it short.</p>
+    <p class="small dim">Not in our games.</p>
+  </div>
+
+  <div class="wf" data-box="deck position">
+    <div style="display:flex;gap:3px">${Array.from({length:14},(_,i)=>`<div class="fill" style="flex:1;${i<5?'background:#999':''}"></div>`).join('')}</div>
+    <p class="small dim" style="margin-top:6px">5 of 14 · swipe for the next</p>
+  </div>`;
+}
+
+const V = { A: variantA, B: variantB, C: variantC };
+let cur = (new URLSearchParams(location.search).get('variant') || 'A').toUpperCase();
+if (!V[cur]) cur = 'A';
+
+const bar = document.createElement('nav');
+bar.className = 'bottom';
+bar.innerHTML = `<button id="p" aria-label="previous">←</button>
+  <span id="lab"></span><button id="n" aria-label="next">→</button>`;
+document.body.appendChild(bar);
+
+function render() {
+  document.getElementById('phone').innerHTML = V[cur]();
+  document.getElementById('lab').textContent =
+    cur + ' (' + { A:'playbook', B:'questions', C:'cards' }[cur] + ')';
+  const u = new URL(location.href); u.searchParams.set('variant', cur);
+  history.replaceState(null, '', u);
+}
+function step(d) {
+  const ks = Object.keys(V);
+  cur = ks[(ks.indexOf(cur) + d + ks.length) % ks.length];
+  render();
+}
+document.getElementById('p').onclick = () => step(-1);
+document.getElementById('n').onclick = () => step(1);
+document.addEventListener('keydown', (e) => {
+  const t = e.target;
+  if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) return;
+  if (e.key === 'ArrowLeft') step(-1);
+  if (e.key === 'ArrowRight') step(1);
+});
+render();
+</script>
+</body>
+</html>
