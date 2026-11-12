@@ -86,19 +86,6 @@
   .basis { font-size: .9rem; color: var(--ink-3); margin-bottom: 0; font-variant-numeric: tabular-nums; }
 
   /* running header for long scrolls */
-  .sticky {
-    position: sticky; top: 0; z-index: 5;
-    margin: 0 -20px 1.6em; padding: 10px 20px;
-    background: var(--paper);
-    border-bottom: 1px solid var(--rule);
-    font-size: .85rem; color: var(--ink-2);
-    display: flex; justify-content: space-between; gap: 1em;
-  }
-  .sticky span + span { white-space: nowrap; }
-  .sticky .t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .sticky .t .full { display: none; }
-  @media (min-width: 560px) { .sticky .t .full { display: inline; } }
-  .sticky strong { color: var(--ink); font-weight: 700; }
 
   /* confidence scale */
   .scale { margin: 0 0 2.4em; }
@@ -198,7 +185,6 @@
   .colophon { margin-top: 3.5em; padding-top: 1em; border-top: 1px solid var(--rule); font-size: .82rem; color: var(--ink-3); }
   @media (max-width: 560px) {
     main { padding: 22px 16px 56px; }
-    .sticky { margin-left: -16px; margin-right: -16px; padding-left: 16px; padding-right: 16px; }
     .result div { grid-template-columns: max-content 1fr; gap: .2em .6em; }
     .result .fig { grid-column: 2; text-align: left; }
   }
@@ -208,7 +194,7 @@
 <main>
 
 <header>
-  <h1>Play B: Dennis + Brooke, Peter + Lindsay.</h1>
+  <h1>Play B: Dennis + Brooke, Peter + Lindsay</h1>
   <p class="dateline"><span>MiLP mixed doubles</span><span>6 games from Nov 11</span><span>Prepared by Dennis</span></p>
 
   <section class="call" aria-labelledby="call-title">
@@ -222,11 +208,6 @@
     <p class="basis">From 6 mixed games, 219 rallies, 1,224 shots. 3 games per pairing.</p>
   </section>
 </header>
-
-<div class="sticky" aria-hidden="true">
-  <span class="t"><strong>Play B</strong><span class="full"> &nbsp;Dennis + Brooke, Peter + Lindsay</span></span>
-  <span>A lean, not a proof</span>
-</div>
 
 <section class="scale" aria-labelledby="scale-title">
   <h2 id="scale-title">How sure we are</h2>
