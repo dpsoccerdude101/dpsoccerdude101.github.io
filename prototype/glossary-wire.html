@@ -1,10 +1,11 @@
 <!doctype html>
 <!--
-PROTOTYPE — throwaway. Answers one question for ticket #8 (glossary):
-what does the page's unit of content look like, and in which words?
-Three variants, switchable with ← → or the pill at the bottom.
-Wireframe fidelity: boxes, one type scale, no colour decisions.
-Real values from the shot log (card_metrics.py). No scoreline anywhere.
+PROTOTYPE — throwaway. Ticket #8, round 2.
+The user said: cards, seen individually, "how they combine, like duels in a board game".
+So: D = a board with one card per pair, showing what each pair covers and what it leaves open,
+the four games each pair actually played (no scoreline — none is readable), and one comparison
+across the two teams, where the bias in the data is printed rather than hidden.
+Press ← / → to flip A / B / C / D.  All values real (card_metrics.py over shots.json).
 -->
 <html lang="en">
 <head>
@@ -12,189 +13,237 @@ Real values from the shot log (card_metrics.py). No scoreline anywhere.
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>PROTOTYPE · what the page shows</title>
 <style>
-  :root { --ink:#111; --dim:#666; --line:#bbb; --bg:#fff; --wash:#f4f4f4; }
-  * { box-sizing:border-box; }
-  body { margin:0; background:#e9e9e9;
-         font:16px/1.45 ui-sans-serif,system-ui,-apple-system,sans-serif; color:var(--ink); }
-  * { min-width:0; }
+  :root { --ink:#111; --dim:#666; --line:#bbb; --bg:#fff; --wash:#f4f4f4; --accent:#111; }
+  * { box-sizing:border-box; min-width:0; }
   html, body { overflow-wrap:anywhere; }
+  body { margin:0; background:#e9e9e9; font:16px/1.45 ui-sans-serif,system-ui,-apple-system,sans-serif; color:var(--ink); }
   .phone { width:320px; max-width:100%; margin:16px auto 96px; background:var(--bg);
            border:1px solid #999; min-height:640px; padding:16px 14px 24px; }
-  .chrome { display:flex; justify-content:space-between; font-size:11px;
-            letter-spacing:.06em; text-transform:uppercase; color:var(--dim);
-            border-bottom:1px solid var(--line); padding-bottom:6px; margin-bottom:14px; }
+  .chrome { display:flex; justify-content:space-between; font-size:11px; letter-spacing:.06em;
+            text-transform:uppercase; color:var(--dim); border-bottom:1px solid var(--line);
+            padding-bottom:6px; margin-bottom:14px; }
   .wf { border:1px dashed var(--line); padding:8px; margin:0 0 10px; }
   .wf::before { content:attr(data-box); display:block; font-size:10px; letter-spacing:.08em;
                 text-transform:uppercase; color:var(--dim); margin-bottom:4px; }
   h2 { font-size:20px; margin:0 0 6px; }
-  h3 { font-size:15px; margin:0 0 4px; }
+  h3 { font-size:15px; margin:0 0 2px; }
   p { margin:0 0 8px; }
   .big { font-size:19px; font-weight:600; margin:0 0 6px; }
   .dim { color:var(--dim); }
   .small { font-size:13px; }
-  .dots { display:flex; gap:4px; align-items:center; }
+  .tiny { font-size:11px; }
+  .dots { display:flex; gap:4px; align-items:center; flex:none; }
   .dots i { width:10px; height:10px; border:1px solid var(--ink); border-radius:50%; display:block; }
   .dots i.on { background:var(--ink); }
-  .row { display:flex; justify-content:space-between; align-items:center; gap:8px; padding:5px 0;
+  .row { display:flex; justify-content:space-between; align-items:center; gap:8px; padding:4px 0;
          border-bottom:1px dotted var(--line); }
-  .tag { display:inline-block; font-size:11px; border:1px solid var(--line); padding:0 5px;
+  .row .lab { flex:1 1 78px; }
+  .row .val { flex:none; width:78px; text-align:right; }
+  .tag { display:inline-block; font-size:10px; border:1px solid var(--ink); padding:0 5px;
          text-transform:uppercase; letter-spacing:.06em; }
-  .fill { height:10px; background:var(--wash); border:1px solid var(--line); }
-  nav.bottom { position:fixed; left:50%; transform:translateX(-50%); bottom:14px; max-width:94vw; white-space:nowrap; z-index:5;
-               display:flex; align-items:center; gap:10px; background:#111; color:#fff;
-               border-radius:999px; padding:8px 12px; font-size:13px; }
+  .tag.ghost { border-style:dashed; color:var(--dim); border-color:var(--line); }
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  .mini { border:1px solid var(--ink); padding:6px; }
+  .mini.open { border-style:dashed; border-color:var(--line); color:var(--dim); }
+  .mini h4 { margin:0 0 4px; font-size:13px; }
+  .cover { display:flex; flex-wrap:wrap; gap:3px; margin:4px 0 0; }
+  .cover span { font-size:10px; border:1px solid var(--line); padding:0 3px; }
+  .open { display:flex; flex-wrap:wrap; gap:3px; margin:4px 0 0; }
+  .open span { font-size:10px; border:1px dashed var(--line); color:var(--dim); padding:0 3px; }
+  .meets { list-style:none; margin:4px 0 0; padding:0; font-size:11px; color:var(--dim); }
+  .meets li { padding:1px 0; }
+  .bar { display:flex; height:8px; border:1px solid var(--line); }
+  .bar div { flex:1; border-right:1px solid var(--line); }
+  .bar div:last-child { border-right:0; }
+  .bar div.on { background:#999; }
+  .bar div.round { background:#999; }
+  .band { display:flex; align-items:center; gap:6px; font-size:12px; padding:3px 0; }
+  .band .track { flex:1; height:8px; background:var(--wash); border:1px solid var(--line); position:relative; }
+  .band .fillr { position:absolute; top:0; bottom:0; background:#bbb; }
+  .band .val { flex:none; width:42px; text-align:right; }
+  nav.bottom { position:fixed; left:50%; transform:translateX(-50%); bottom:14px; max-width:94vw;
+               white-space:nowrap; z-index:5; display:flex; align-items:center; gap:10px;
+               background:#111; color:#fff; border-radius:999px; padding:8px 12px; font-size:13px; }
   nav.bottom button { background:none; border:1px solid #666; color:#fff; border-radius:6px;
                       font:inherit; padding:2px 8px; cursor:pointer; }
   nav.bottom button:focus-visible { outline:2px solid #fff; outline-offset:2px; }
-  .legend { width:320px; margin:0 auto; font-size:12px; color:#333; }
-  .legend code { background:#fff; padding:0 3px; }
+  .legend { width:320px; max-width:96vw; margin:0 auto; font-size:12px; color:#333; }
+  .legend li { margin-bottom:4px; }
 </style>
 </head>
 <body>
 <main class="phone" id="phone"></main>
 
 <div class="legend">
-  <p><b>← / →</b> switches the three ways of naming what the page shows. Same real data in all three.</p>
-  <p><b>A — sections of one playbook:</b> no "card", no "deck". The page is a short document; "pairing" is never a noun; each measured thing is a row you scan.</p>
-  <p><b>B — answers to the player's own questions:</b> every block is headed by the question it answers. Attribute names stay as sentences; the "best / worst of the four" dot is the whole scale.</p>
-  <p><b>C — cards:</b> the deck metaphor survives. One thing per card, a number at the bottom ("3 of 14"), player attributes as five plain-word rows.</p>
-  <p>Test for each: <i>which two do I play with, and what changes when they lob?</i> — answered without scrolling back?</p>
+  <p><b>← / →</b> flips the variants. Live at <code>/prototype/glossary-wire.html?variant=D</code>.</p>
+  <ul>
+    <li><b>D (new) — the board.</b> One card per pair. Front: what the two of you cover together, what neither of you covers. Below: the four games you played, as a strip — no scoreline, because none is readable. Dashed cards are pairs the log has not seen.</li>
+    <li><b>D also carries the honest bias.</b> Every mixed game had the same two teams. The one game with other teams is the same-gender game; its strip is marked and excluded from every other number on the page.</li>
+    <li>A / B / C are the earlier three, kept for comparison. Expect A and B to lose on your read.</li>
+  </ul>
 </div>
 
 <script>
-const PLAYERS = [
-  { name:'Dennis', role:'the wall', rows:[['attack','2nd best'],['defence','best'],['positioning','best'],['consistency','best'],['touch','2nd best']], rank:{attack:2,defence:1,positioning:1,consistency:1,touch:2} },
-  { name:'Peter',  role:'the finisher', rows:[['attack','best'],['defence','2nd best'],['positioning','worst'],['consistency','2nd best'],['touch','best']], rank:{attack:1,defence:2,positioning:4,consistency:2,touch:1} },
-  { name:'Lindsay',role:'the steady one', rows:[['attack','worst'],['defence','worst'],['positioning','2nd best'],['consistency','3rd'],['touch','3rd']], rank:{attack:4,defence:4,positioning:2,consistency:3,touch:3} },
-  { name:'Brooke', role:'the soft hands', rows:[['attack','3rd'],['defence','3rd'],['positioning','3rd'],['consistency','worst'],['touch','worst']], rank:{attack:3,defence:3,positioning:3,consistency:4,touch:4} },
-];
+const P = {
+  Dennis:  { attack:2, defence:1, positioning:1, consistency:1, touch:2, v:{attack:31,defence:73,positioning:58,consistency:87,touch:82} },
+  Peter:   { attack:1, defence:2, positioning:4, consistency:2, touch:1, v:{attack:38,defence:72,positioning:36,consistency:83,touch:84} },
+  Lindsay: { attack:4, defence:4, positioning:2, consistency:3, touch:3, v:{attack:20,defence:58,positioning:52,consistency:79,touch:79} },
+  Brooke:  { attack:3, defence:3, positioning:3, consistency:4, touch:4, v:{attack:26,defence:62,positioning:42,consistency:79,touch:71} },
+};
+const PAIRS = {
+  "Dennis+Brooke":     { names:['Dennis','Brooke'],  games:['G3','G4','G7'] },
+  "Peter+Lindsay":     { names:['Peter','Lindsay'],  games:['G3','G4','G7'] },
+  "Dennis+Lindsay":    { names:['Dennis','Lindsay'], games:['G1','G2','G6'] },
+  "Peter+Brooke":      { names:['Peter','Brooke'],   games:['G1','G2','G6'] },
+  "Dennis+Peter":      { names:['Dennis','Peter'],   games:['G5'], ghost:true, note:'the same-gender game — not in the mixed numbers' },
+  "Lindsay+Brooke":    { names:['Lindsay','Brooke'], games:['G5'], ghost:true, note:'the same-gender game — not in the mixed numbers' },
+};
+const GAMES = ['G1','G2','G3','G4','G6','G7'];   // mixed, in the digest
+const ATTRS = ['attack','defence','positioning','consistency','touch'];
+const nice = { attack:'attack', defence:'defence', positioning:'positioning', consistency:'consistency', touch:'touch' };
 
-const dots = (r) => `<span class="dots" aria-label="rank ${r} of 4">${
-  [1,2,3,4].map(i => `<i class="${i===r?'on':''}"></i>`).join('')}</span>`;
+function chrome(n) { return `<div class="chrome"><span>Wire ${n}</span><span>320 px</span></div>`; }
+const dots = r => `<span class="dots" aria-label="rank ${r} of 4">${[1,2,3,4].map(i=>`<i class="${i===r?'on':''}"></i>`).join('')}</span>`;
+const strip = gs => `<span class="bar" aria-hidden="true">${GAMES.map(g =>
+  `<div class="${gs.includes(g)?(g==='G5'?'round':'on'):''}"></div>`).join('')}</span>`;
 
-function chrome(n) {
-  return `<div class="chrome"><span>Wire ${n}</span><span>320 px</span></div>`;
+/* ---------- D: the board ---------- */
+function pairCard(key, open) {
+  const p = PAIRS[key];
+  const [a,b] = p.names.map(n => P[n]);
+  const covers = ATTRS.filter(t => a[t]===1 || b[t]===1);            // something one of you is best at
+  const opens  = ATTRS.filter(t => a[t]>=3 && b[t]>=3);              // both of you mid or worse
+  const names  = p.names.join(' + ');
+  return `<div class="mini ${open?'open':''}">
+    <h4>${names}</h4>
+    ${p.ghost ? `<div class="tiny" style="color:#666;margin:0 0 4px">${p.note}</div>` : ''}
+    ${covers.length ? `<div class="cover">${covers.map(t=>`<span>${nice[t]}</span>`).join('')}</div>` : ''}
+    ${opens.length ? `<div class="open">${opens.map(t=>`<span>${nice[t]} open</span>`).join('')}</div>` : '<div class="open"><span>nothing left open</span></div>'}
+    <div class="meets" style="margin-top:6px">
+      <span class="tiny dim">played</span> ${strip(p.games)}
+      <div class="tiny" style="margin-top:2px">${p.games.length} ${p.games.length===1?'game':'games'}${p.games.includes('G5')?' · same-gender':''}</div>
+    </div>
+  </div>`;
 }
 
+function variantD() {
+  return chrome('D · the board') + `
+  <h2>Four names, six pairs</h2>
+  <p class="small dim">Two cards per row meet each other. Dashed cards the log has not seen.</p>
+
+  <div class="grid2">
+    ${pairCard("Dennis+Brooke")}
+    ${pairCard("Peter+Lindsay")}
+    ${pairCard("Dennis+Lindsay")}
+    ${pairCard("Peter+Brooke")}
+    ${pairCard("Dennis+Peter")}
+    ${pairCard("Lindsay+Brooke")}
+  </div>
+
+  <div class="wf" data-box="who met whom, in our mixed games">
+    <div class="row"><span class="lab small">Dennis+Brooke vs Peter+Lindsay</span>
+      ${strip(['G3','G4','G7'])}<span class="val tiny">4 games</span></div>
+    <div class="row"><span class="lab small">Dennis+Lindsay vs Peter+Brooke</span>
+      ${strip(['G1','G2','G6'])}<span class="val tiny">4 games</span></div>
+    <p class="small" style="margin-top:8px">Those are the two teams, and in the mixed games
+      they are the <b>only</b> two teams — each team is the other's opponent every time.
+      So nothing here is a contest between your team and a stranger.</p>
+  </div>
+
+  <div class="wf" data-box="the one honest comparison">
+    <p class="small" style="margin-bottom:6px">Each pair, the share of rallies the log credits to it.</p>
+    ${[['Dennis+Brooke',55],['Peter+Lindsay',45],['Dennis+Lindsay',47],['Peter+Brooke',53]]
+      .map(([k,n]) => `<div class="band"><span style="width:112px" class="tiny">${k.replace('+',' + ')}</span>
+        <span class="track"><span class="fillr" style="left:0;width:${n*2}%"></span></span>
+        <span class="val tiny">${n} in 100</span></div>`).join('')}
+    <p class="small dim" style="margin-top:8px">Both of these pairs meet their partner in every
+      mixed game; each teammate plays the other two players equally. That is why the two
+      teams' numbers are a like-for-like comparison and each player's own numbers are not.</p>
+  </div>
+
+  <div class="wf" data-box="a player, not a wall of words">
+    <h3>Dennis</h3>
+    ${ATTRS.map(t=>`<div class="row"><span class="lab small">${nice[t]}</span>${dots(P.Dennis[t])}
+      <span class="val tiny">${['','best','2nd','3rd','4th'][P.Dennis[t]]}</span></div>`).join('')}
+  </div>
+
+  <div class="wf" data-box="the bias, printed">
+    <p class="small">We played seven games. In <b>six</b> of them the teams were
+      Dennis+Brooke and Peter+Lindsay, or Dennis+Lindsay and Peter+Brooke.
+      In the seventh, the two men played the two women.</p>
+    <p class="small dim">So: each of you has only ever played beside one of the other three in
+      a mixed game. Nothing on this page can say how Dennis and Lindsay play together, because
+      in a mixed game they never have.</p>
+  </div>`;
+}
+
+/* ---------- A: playbook, cut down per the first review ---------- */
 function variantA() {
   return chrome('A · playbook') + `
   <h2>Dennis and Brooke with Peter and Lindsay</h2>
-  <p class="dim small">Read in about a minute. Every line says where it came from.</p>
-
-  <div class="wf" data-box="already looked: top">
-    <p class="small">Your four, five things each, measured from the games.</p>
-    ${PLAYERS.map(p => `<div class="row"><span>${p.name} — ${p.role}</span>
-      <span class="small dim">${p.rows.filter(r=>r[1]==='best').map(r=>r[0]).join(', ')||'—'}</span></div>`).join('')}
+  <div class="wf" data-box="the line you act on">
+    <div class="row"><b>Dennis and Brooke</b><span class="small">played every mixed game together</span></div>
+    <div class="row"><b>Peter and Lindsay</b><span class="small">played every mixed game together</span></div>
   </div>
-
-  <div class="wf" data-box="who plays with whom">
-    <div class="row"><b>Dennis and Brooke</b><span class="small">played</span></div>
-    <div class="row"><b>Peter and Lindsay</b><span class="small">played</span></div>
-    <div class="row"><b>Dennis and Lindsay</b><span class="small">not in our games</span></div>
-    <div class="row"><b>Peter and Brooke</b><span class="small">not in our games</span></div>
-    <p class="small" style="margin-top:8px">Every one of us misses less next to the other one below.
-      Dennis misses 16 in 100 next to Lindsay, 10 next to Brooke; Peter 11 next to Lindsay, 18 next to Brooke.
-      Do not read it as who is better — we never played one pair against the other.</p>
+  <div class="wf" data-box="where it comes from">
+    <p class="small">Whoever you pair beside, you split your games, and each pair covers
+      a different half of the court. Which pairing to pick is not a question the log answers.</p>
   </div>
-
-  <div class="wf" data-box="what changes when they lob">
-    <p><b>They lob over the net player.</b> The net player turns and runs back;
-      the deep player takes it and brings it back short. Say «mine» early.</p>
-    <p class="small dim">Not in this data: the log does not record where you stood when you answered.</p>
-  </div>
-
-  <div class="wf" data-box="attribute rows, sample">
-    ${PLAYERS.map(p => `<h3>${p.name}</h3>` + p.rows.map(r =>
-      `<div class="row"><span class="small">${r[0]}</span>${dots(p.rank[r[0]])}
-       <span class="small dim" style="width:64px;text-align:right">${r[1]} of the four</span></div>`).join('')).join('')}
+  <div class="wf" data-box="they lob over the net player">
+    <p><b>Net player runs back. Deep player returns it short.</b></p>
+    <p class="small dim">No number here: the log has no record of who stood where.</p>
   </div>`;
 }
 
+/* ---------- B: questions, cut down per the first review ---------- */
 function variantB() {
   return chrome('B · questions') + `
   <h2>Thursday, the four of us</h2>
-
   <div class="wf" data-box="the one answer">
     <p class="big">Who do we play with?</p>
     <p>You and Brooke. Peter and Lindsay.</p>
-    <p class="small dim">Two other combinations have not happened in our games at all.</p>
+    <p class="small">Every mixed game we played was exactly these two teams.</p>
   </div>
-
-  <div class="wf" data-box="why">
-    <p class="big">Why these two?</p>
-    <p>Each of you misses less beside your partner. Dennis, 16 misses in 100 beside Lindsay,
-      10 beside Brooke. Peter, 11 beside Lindsay, 18 beside Brooke.</p>
-    <p>Lindsay, you and Brooke are the two who miss more — that is a job for the two of you to share,
-      not a ranking of you.</p>
+  <div class="wf" data-box="under what condition">
+    <p class="big">It suits us when…</p>
+    <div class="row"><span class="small">the opponent plays one side of the court</span>${dots(1)}</div>
+    <div class="row"><span class="small">we are the ones who hit first</span>${dots(2)}</div>
+    <p class="small dim">Placeholder rule, not a claim from the log — the log cannot see conditions.</p>
   </div>
-
   <div class="wf" data-box="when it breaks">
-    <p class="big">They lob over the player at the net — now what?</p>
-    <p>The player at the net turns and runs to the back corner; the player at the back
-      takes it and returns it short, back to their feet.</p>
-    <p class="small dim">Nothing in our games shows this: the log has no record of who stood where.</p>
-  </div>
-
-  <div class="wf" data-box="the rest, by question">
-    <div class="row"><span>Who is best at what?</span>${dots(1)}<span class="small dim">five per player</span></div>
-    <div class="row"><span>What do I change on the third shot?</span>${dots(1)}<span class="small dim">two rules</span></div>
-    <div class="row"><span>What did we play in each game?</span>${dots(1)}<span class="small dim">seven games</span></div>
-  </div>
-
-  <div class="wf" data-box="one player, by question">
-    <h3>Dennis — the wall</h3>
-    <div class="row"><span class="small">Best at</span><span class="small">defence, positioning, consistency</span></div>
-    <div class="row"><span class="small">Worst at</span><span class="small">attack, touch — 2nd best, which is why the pairing puts Peter beside you</span></div>
+    <p class="big">They lob over the player at the net</p>
+    <p>Net player runs back, deep player returns it short.</p>
   </div>`;
 }
 
+/* ---------- C: deck, with the bias called out ---------- */
 function variantC() {
   return chrome('C · cards') + `
   <h2>Dennis and Brooke</h2>
   <p class="big">with Peter and Lindsay.</p>
-  <p class="small dim">The two we play.</p>
-
-  <div class="wf" data-box="card 4 of 14 · a player">
+  <div class="wf" data-box="card 4 of 14 · a pair">
     <div style="display:flex;justify-content:space-between;align-items:baseline">
-      <h3>Dennis</h3><span class="tag">the wall</span>
-    </div>
-    <p class="small">Everybody looks steadier next to you. Miss the boring shot.</p>
+      <h3>Dennis + Brooke</h3><span class="tag">mixed</span></div>
+    <div style="margin-top:6px">${strip(['G3','G4','G7'])}</div>
+    <p class="small dim" style="margin-top:6px">4 mixed games · played against Peter + Lindsay every time
+      · same-gender game not counted</p>
   </div>
-
-  <div class="wf" data-box="card 5 of 14 · the same player, flipped">
-    ${PLAYERS[0].rows.map(r => `
-      <div class="row"><span class="small">${r[0]}</span>${dots(PLAYERS[0].rank[r[0]])}
-      <span class="small dim" style="width:70px;text-align:right">${r[1]}</span></div>`).join('')}
-    <p class="small dim" style="margin-top:8px">Five things, all measured from the games; the dot is
-      where you sit among the four.</p>
+  <div class="wf" data-box="card 5 of 14 · a pair the mixed log has not seen">
+    <div style="display:flex;justify-content:space-between;align-items:baseline">
+      <h3>Dennis + Lindsay</h3><span class="tag ghost">not mixed</span></div>
+    <p class="small" style="margin-top:6px">You played beside each other once — the same-gender
+      game, against Brooke and Peter. Six mixed games, never together.</p>
   </div>
-
-  <div class="wf" data-box="card 9 of 14 · a pair">
-    <h3>Dennis and Brooke</h3>
-    <p class="small">Dennis misses 10 in 100 next to Brooke — 16 next to Lindsay.</p>
-    <p class="small">Brooke misses 18 in 100 next to Dennis.</p>
-  </div>
-
-  <div class="wf" data-box="card 10 of 14 · a pair that has not happened">
-    <h3>Dennis and Lindsay</h3>
-    <p class="small dim">Not in our games. Nothing to show.</p>
-  </div>
-
-  <div class="wf" data-box="card 12 of 14 · a rule">
-    <h3>They lob over the net player</h3>
-    <p class="small">Net player runs back; deep player returns it short.</p>
-    <p class="small dim">Not in our games.</p>
-  </div>
-
   <div class="wf" data-box="deck position">
-    <div style="display:flex;gap:3px">${Array.from({length:14},(_,i)=>`<div class="fill" style="flex:1;${i<5?'background:#999':''}"></div>`).join('')}</div>
+    <div class="bar">${Array.from({length:14},(_,i)=>`<div class="${i<5?'on':''}"></div>`).join('')}</div>
     <p class="small dim" style="margin-top:6px">5 of 14 · swipe for the next</p>
   </div>`;
 }
 
-const V = { A: variantA, B: variantB, C: variantC };
-let cur = (new URLSearchParams(location.search).get('variant') || 'A').toUpperCase();
-if (!V[cur]) cur = 'A';
+const V = { A: variantA, B: variantB, C: variantC, D: variantD };
+const NAMES = { A:'playbook', B:'questions', C:'cards', D:'board' };
+let cur = (new URLSearchParams(location.search).get('variant') || 'D').toUpperCase();
+if (!V[cur]) cur = 'D';
 
 const bar = document.createElement('nav');
 bar.className = 'bottom';
@@ -204,8 +253,7 @@ document.body.appendChild(bar);
 
 function render() {
   document.getElementById('phone').innerHTML = V[cur]();
-  document.getElementById('lab').textContent =
-    cur + ' (' + { A:'playbook', B:'questions', C:'cards' }[cur] + ')';
+  document.getElementById('lab').textContent = cur + ' (' + NAMES[cur] + ')';
   const u = new URL(location.href); u.searchParams.set('variant', cur);
   history.replaceState(null, '', u);
 }
@@ -216,7 +264,7 @@ function step(d) {
 }
 document.getElementById('p').onclick = () => step(-1);
 document.getElementById('n').onclick = () => step(1);
-document.addEventListener('keydown', (e) => {
+document.addEventListener('keydown', e => {
   const t = e.target;
   if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) return;
   if (e.key === 'ArrowLeft') step(-1);
